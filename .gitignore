@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+.uv/
+dist/
+*.egg-info/
+.pytest_cache/
+
+# Node
+node_modules/
+.npm/
+
+# Env files (never commit secrets)
+.env
+!.env.example
+
+# Data — project specs and audit logs live here; git-ignored by default.
+# When you want to back up specs, push to a private repo or object storage.
+dev/*/data/
+infra/*/data/
+business/*/data/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# VS Code workspace state
+.vscode/*.log

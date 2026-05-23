@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-blueprint": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["run", "mcp-blueprint"],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "BLUEPRINT_DATA_DIR": "${workspaceFolder}/data"
+      }
+    }
+  }
+}
