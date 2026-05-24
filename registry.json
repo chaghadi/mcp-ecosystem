@@ -158,19 +158,77 @@
       ]
     },
     "mcp-search": {
-      "version": null,
-      "status": "planned",
+      "version": "0.1.0",
+      "status": "active",
       "runtime": "python",
       "category": "data",
       "path": "data/mcp-search",
-      "port": 3104,
+      "port": null,
       "transport": "stdio",
-      "description": "Search \u2014 index, search, sync.",
+      "description": "Full-text search \u2014 Postgres tsvector, ranked results, excerpts.",
       "owner": "chaghadi",
-      "created": null,
-      "updated": null,
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
       "depends_on": [
         "mcp-postgres"
+      ]
+    },
+    "mcp-git-ops": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "dev",
+      "path": "dev/mcp-git-ops",
+      "port": null,
+      "transport": "stdio",
+      "description": "Git operations \u2014 GitHub API, repos, branches, PRs, issues.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
+    },
+    "mcp-vercel": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "infra",
+      "path": "infra/mcp-vercel",
+      "port": null,
+      "transport": "stdio",
+      "description": "Vercel deployments \u2014 projects, deployments, env vars.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
+    },
+    "mcp-digitalocean": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "infra",
+      "path": "infra/mcp-digitalocean",
+      "port": null,
+      "transport": "stdio",
+      "description": "DigitalOcean infra \u2014 App Platform, databases, droplets, domains.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
+    },
+    "mcp-scaffold": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "dev",
+      "path": "dev/mcp-scaffold",
+      "port": null,
+      "transport": "stdio",
+      "description": "App scaffold \u2014 generate React/Vite + FastAPI repos wired to MCP ecosystem.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": [
+        "mcp-git-ops"
       ]
     }
   }

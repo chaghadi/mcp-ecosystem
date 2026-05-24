@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-vercel": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-vercel"
+      ],
+      "cwd": "${workspaceFolder}/infra/mcp-vercel"
+    }
+  }
+}

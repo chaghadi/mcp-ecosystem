@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-digitalocean": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-digitalocean"
+      ],
+      "cwd": "${workspaceFolder}/infra/mcp-digitalocean"
+    }
+  }
+}

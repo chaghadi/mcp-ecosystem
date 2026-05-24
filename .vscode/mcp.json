@@ -92,6 +92,51 @@
         "mcp-webhooks"
       ],
       "cwd": "${workspaceFolder}/business/mcp-webhooks"
+    },
+    "mcp-search": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-search"
+      ],
+      "cwd": "${workspaceFolder}/data/mcp-search"
+    },
+    "mcp-git-ops": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-git-ops"
+      ],
+      "cwd": "${workspaceFolder}/dev/mcp-git-ops"
+    },
+    "mcp-vercel": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-vercel"
+      ],
+      "cwd": "${workspaceFolder}/infra/mcp-vercel"
+    },
+    "mcp-digitalocean": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-digitalocean"
+      ],
+      "cwd": "${workspaceFolder}/infra/mcp-digitalocean"
+    },
+    "mcp-scaffold": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-scaffold"
+      ],
+      "cwd": "${workspaceFolder}/dev/mcp-scaffold"
     }
   }
 }

@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-scaffold": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-scaffold"
+      ],
+      "cwd": "${workspaceFolder}/dev/mcp-scaffold"
+    }
+  }
+}

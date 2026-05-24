@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-git-ops": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-git-ops"
+      ],
+      "cwd": "${workspaceFolder}/dev/mcp-git-ops"
+    }
+  }
+}

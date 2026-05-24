@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-search": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-search"
+      ],
+      "cwd": "${workspaceFolder}/data/mcp-search"
+    }
+  }
+}
