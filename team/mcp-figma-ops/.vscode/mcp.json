@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-figma-ops": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-figma-ops"
+      ],
+      "cwd": "${workspaceFolder}/team/mcp-figma-ops"
+    }
+  }
+}

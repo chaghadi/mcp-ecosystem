@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-slack-ops": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-slack-ops"
+      ],
+      "cwd": "${workspaceFolder}/team/mcp-slack-ops"
+    }
+  }
+}

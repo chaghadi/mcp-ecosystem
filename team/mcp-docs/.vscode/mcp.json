@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-docs": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-docs"
+      ],
+      "cwd": "${workspaceFolder}/team/mcp-docs"
+    }
+  }
+}

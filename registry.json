@@ -631,6 +631,82 @@
       "depends_on": [
         "mcp-postgres"
       ]
+    },
+    "mcp-slack-ops": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "team",
+      "path": "team/mcp-slack-ops",
+      "port": null,
+      "transport": "stdio",
+      "description": "Slack \u2014 messages, DMs, channels, users, reactions, file uploads.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
+    },
+    "mcp-docs": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "team",
+      "path": "team/mcp-docs",
+      "port": null,
+      "transport": "stdio",
+      "description": "Internal docs \u2014 markdown in Postgres, search by title/content/tags.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": [
+        "mcp-postgres"
+      ]
+    },
+    "mcp-onboarding": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "team",
+      "path": "team/mcp-onboarding",
+      "port": null,
+      "transport": "stdio",
+      "description": "Onboarding \u2014 templates, assignments, step completion tracking.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": [
+        "mcp-postgres"
+      ]
+    },
+    "mcp-code-review": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "team",
+      "path": "team/mcp-code-review",
+      "port": null,
+      "transport": "stdio",
+      "description": "Code review \u2014 PR requests, reviewer assignments, stats, nudges.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": [
+        "mcp-postgres"
+      ]
+    },
+    "mcp-figma-ops": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "team",
+      "path": "team/mcp-figma-ops",
+      "port": null,
+      "transport": "stdio",
+      "description": "Figma \u2014 file info, components, image exports, comments, variables.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
     }
   }
 }

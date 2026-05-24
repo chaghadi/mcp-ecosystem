@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-onboarding": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-onboarding"
+      ],
+      "cwd": "${workspaceFolder}/team/mcp-onboarding"
+    }
+  }
+}

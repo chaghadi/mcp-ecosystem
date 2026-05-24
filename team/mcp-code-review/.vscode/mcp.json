@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-code-review": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-code-review"
+      ],
+      "cwd": "${workspaceFolder}/team/mcp-code-review"
+    }
+  }
+}

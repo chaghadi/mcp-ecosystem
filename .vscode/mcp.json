@@ -380,6 +380,51 @@
         "mcp-waitlist"
       ],
       "cwd": "${workspaceFolder}/launch/mcp-waitlist"
+    },
+    "mcp-slack-ops": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-slack-ops"
+      ],
+      "cwd": "${workspaceFolder}/team/mcp-slack-ops"
+    },
+    "mcp-docs": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-docs"
+      ],
+      "cwd": "${workspaceFolder}/team/mcp-docs"
+    },
+    "mcp-onboarding": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-onboarding"
+      ],
+      "cwd": "${workspaceFolder}/team/mcp-onboarding"
+    },
+    "mcp-code-review": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-code-review"
+      ],
+      "cwd": "${workspaceFolder}/team/mcp-code-review"
+    },
+    "mcp-figma-ops": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-figma-ops"
+      ],
+      "cwd": "${workspaceFolder}/team/mcp-figma-ops"
     }
   }
 }
