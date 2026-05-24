@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-waitlist": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-waitlist"
+      ],
+      "cwd": "${workspaceFolder}/launch/mcp-waitlist"
+    }
+  }
+}

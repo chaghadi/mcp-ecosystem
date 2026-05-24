@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-product-hunt": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-product-hunt"
+      ],
+      "cwd": "${workspaceFolder}/launch/mcp-product-hunt"
+    }
+  }
+}

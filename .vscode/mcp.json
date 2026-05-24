@@ -335,6 +335,51 @@
         "mcp-time-track"
       ],
       "cwd": "${workspaceFolder}/scheduling/mcp-time-track"
+    },
+    "mcp-coinbase": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-coinbase"
+      ],
+      "cwd": "${workspaceFolder}/launch/mcp-coinbase"
+    },
+    "mcp-appstore": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-appstore"
+      ],
+      "cwd": "${workspaceFolder}/launch/mcp-appstore"
+    },
+    "mcp-playstore": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-playstore"
+      ],
+      "cwd": "${workspaceFolder}/launch/mcp-playstore"
+    },
+    "mcp-product-hunt": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-product-hunt"
+      ],
+      "cwd": "${workspaceFolder}/launch/mcp-product-hunt"
+    },
+    "mcp-waitlist": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-waitlist"
+      ],
+      "cwd": "${workspaceFolder}/launch/mcp-waitlist"
     }
   }
 }

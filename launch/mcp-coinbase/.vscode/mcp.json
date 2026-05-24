@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-coinbase": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-coinbase"
+      ],
+      "cwd": "${workspaceFolder}/launch/mcp-coinbase"
+    }
+  }
+}

@@ -559,6 +559,78 @@
       "depends_on": [
         "mcp-postgres"
       ]
+    },
+    "mcp-coinbase": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "launch",
+      "path": "launch/mcp-coinbase",
+      "port": null,
+      "transport": "stdio",
+      "description": "Crypto payments \u2014 Coinbase Commerce charges + webhook verification.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
+    },
+    "mcp-appstore": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "launch",
+      "path": "launch/mcp-appstore",
+      "port": null,
+      "transport": "stdio",
+      "description": "App Store Connect \u2014 iOS apps, reviews, TestFlight builds, versions.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
+    },
+    "mcp-playstore": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "launch",
+      "path": "launch/mcp-playstore",
+      "port": null,
+      "transport": "stdio",
+      "description": "Google Play Console \u2014 Android listings, reviews, release tracks.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
+    },
+    "mcp-product-hunt": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "launch",
+      "path": "launch/mcp-product-hunt",
+      "port": null,
+      "transport": "stdio",
+      "description": "Product Hunt \u2014 search, today's launches, post lookups.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
+    },
+    "mcp-waitlist": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "launch",
+      "path": "launch/mcp-waitlist",
+      "port": null,
+      "transport": "stdio",
+      "description": "Waitlist \u2014 signups, referral codes, top-N invites, stats.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": [
+        "mcp-postgres"
+      ]
     }
   }
 }

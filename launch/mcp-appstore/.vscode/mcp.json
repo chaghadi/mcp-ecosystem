@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-appstore": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-appstore"
+      ],
+      "cwd": "${workspaceFolder}/launch/mcp-appstore"
+    }
+  }
+}

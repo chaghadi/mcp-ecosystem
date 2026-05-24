@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-playstore": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-playstore"
+      ],
+      "cwd": "${workspaceFolder}/launch/mcp-playstore"
+    }
+  }
+}
