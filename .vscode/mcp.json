@@ -38,6 +38,15 @@
         "mcp-storage"
       ],
       "cwd": "${workspaceFolder}/data/mcp-storage"
+    },
+    "mcp-auth": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-auth"
+      ],
+      "cwd": "${workspaceFolder}/business/mcp-auth"
     }
   }
 }

@@ -61,17 +61,17 @@
       "depends_on": []
     },
     "mcp-auth": {
-      "version": null,
-      "status": "planned",
+      "version": "0.1.0",
+      "status": "active",
       "runtime": "python",
       "category": "business",
       "path": "business/mcp-auth",
-      "port": 3200,
+      "port": null,
       "transport": "stdio",
-      "description": "Auth \u2014 JWT, OAuth, roles.",
+      "description": "Auth \u2014 JWT, email/phone/username login, app-scoped roles.",
       "owner": "chaghadi",
-      "created": null,
-      "updated": null,
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
       "depends_on": [
         "mcp-postgres",
         "mcp-redis"

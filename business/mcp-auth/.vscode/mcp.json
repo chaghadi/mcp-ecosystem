@@ -1,0 +1,10 @@
+{
+  "servers": {
+    "mcp-auth": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["run", "mcp-auth"],
+      "cwd": "${workspaceFolder}"
+    }
+  }
+}
