@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-time-track": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-time-track"
+      ],
+      "cwd": "${workspaceFolder}/scheduling/mcp-time-track"
+    }
+  }
+}

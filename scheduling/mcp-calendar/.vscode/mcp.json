@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-calendar": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-calendar"
+      ],
+      "cwd": "${workspaceFolder}/scheduling/mcp-calendar"
+    }
+  }
+}

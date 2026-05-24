@@ -290,6 +290,51 @@
         "mcp-press"
       ],
       "cwd": "${workspaceFolder}/marketing/mcp-press"
+    },
+    "mcp-calendar": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-calendar"
+      ],
+      "cwd": "${workspaceFolder}/scheduling/mcp-calendar"
+    },
+    "mcp-cron": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-cron"
+      ],
+      "cwd": "${workspaceFolder}/scheduling/mcp-cron"
+    },
+    "mcp-release-plan": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-release-plan"
+      ],
+      "cwd": "${workspaceFolder}/scheduling/mcp-release-plan"
+    },
+    "mcp-standup": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-standup"
+      ],
+      "cwd": "${workspaceFolder}/scheduling/mcp-standup"
+    },
+    "mcp-time-track": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-time-track"
+      ],
+      "cwd": "${workspaceFolder}/scheduling/mcp-time-track"
     }
   }
 }

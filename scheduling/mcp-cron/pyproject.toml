@@ -1,0 +1,29 @@
+[project]
+name = "mcp-cron"
+version = "0.1.0"
+description = "Cron jobs — register schedules, run due jobs, history."
+requires-python = ">=3.11"
+dependencies = [
+    "mcp[cli]>=1.0.0",
+    "croniter>=2.0.0",
+    "psycopg2-binary>=2.9.0",
+    "python-dotenv>=1.0.0",
+    "alembic>=1.13.0",
+    "sqlalchemy>=2.0.0",
+]
+
+[project.scripts]
+mcp-cron = "src.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[dependency-groups]
+dev = ["pytest>=8.0.0"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

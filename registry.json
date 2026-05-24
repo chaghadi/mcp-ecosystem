@@ -481,6 +481,84 @@
       "depends_on": [
         "mcp-postgres"
       ]
+    },
+    "mcp-calendar": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "scheduling",
+      "path": "scheduling/mcp-calendar",
+      "port": null,
+      "transport": "stdio",
+      "description": "Google Calendar \u2014 events, free/busy slots, calendars.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
+    },
+    "mcp-cron": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "scheduling",
+      "path": "scheduling/mcp-cron",
+      "port": null,
+      "transport": "stdio",
+      "description": "Cron scheduling \u2014 register jobs, find due, execution history.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": [
+        "mcp-postgres"
+      ]
+    },
+    "mcp-release-plan": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "scheduling",
+      "path": "scheduling/mcp-release-plan",
+      "port": null,
+      "transport": "stdio",
+      "description": "Release planning \u2014 versions, features, status, release notes.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": [
+        "mcp-postgres"
+      ]
+    },
+    "mcp-standup": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "scheduling",
+      "path": "scheduling/mcp-standup",
+      "port": null,
+      "transport": "stdio",
+      "description": "Async standups \u2014 daily check-ins, blockers, team summaries.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": [
+        "mcp-postgres"
+      ]
+    },
+    "mcp-time-track": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "scheduling",
+      "path": "scheduling/mcp-time-track",
+      "port": null,
+      "transport": "stdio",
+      "description": "Time tracking \u2014 timers, manual entries, daily/weekly summaries.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": [
+        "mcp-postgres"
+      ]
     }
   }
 }

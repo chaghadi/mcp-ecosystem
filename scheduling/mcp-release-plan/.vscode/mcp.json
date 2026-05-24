@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-release-plan": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-release-plan"
+      ],
+      "cwd": "${workspaceFolder}/scheduling/mcp-release-plan"
+    }
+  }
+}

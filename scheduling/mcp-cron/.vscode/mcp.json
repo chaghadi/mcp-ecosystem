@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-cron": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-cron"
+      ],
+      "cwd": "${workspaceFolder}/scheduling/mcp-cron"
+    }
+  }
+}
