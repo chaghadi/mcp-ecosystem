@@ -8,9 +8,13 @@ The only change required to migrate hosts is the DATABASE_URL env var.
 
 import os
 from logging.config import fileConfig
-
+from pathlib import Path
 from alembic import context
 from sqlalchemy import engine_from_config, pool
+from dotenv import load_dotenv
+
+# Load .env from the mcp-postgres root (parent of migrations/)
+load_dotenv(Path(__file__).parent.parent / ".env")
 
 # Alembic Config object — access alembic.ini values via config.get_main_option()
 config = context.config
