@@ -26,24 +26,24 @@
       "path": "data/mcp-postgres",
       "port": null,
       "transport": "stdio",
-      "description": "PostgreSQL — query, migrate, schema.",
+      "description": "PostgreSQL \u2014 query, migrate, schema.",
       "owner": "chaghadi",
       "created": "2026-05-24",
       "updated": "2026-05-24",
       "depends_on": []
     },
     "mcp-redis": {
-      "version": null,
-      "status": "planned",
+      "version": "0.1.0",
+      "status": "active",
       "runtime": "python",
       "category": "data",
       "path": "data/mcp-redis",
-      "port": 3102,
+      "port": null,
       "transport": "stdio",
-      "description": "Redis — cache, queue, pub/sub.",
+      "description": "Redis \u2014 cache, queue, pub/sub.",
       "owner": "chaghadi",
-      "created": null,
-      "updated": null,
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
       "depends_on": []
     },
     "mcp-storage": {
@@ -54,7 +54,7 @@
       "path": "data/mcp-storage",
       "port": 3103,
       "transport": "stdio",
-      "description": "Object storage — upload, download, signed URLs.",
+      "description": "Object storage \u2014 upload, download, signed URLs.",
       "owner": "chaghadi",
       "created": null,
       "updated": null,
@@ -68,11 +68,14 @@
       "path": "business/mcp-auth",
       "port": 3200,
       "transport": "stdio",
-      "description": "Auth — JWT, OAuth, roles.",
+      "description": "Auth \u2014 JWT, OAuth, roles.",
       "owner": "chaghadi",
       "created": null,
       "updated": null,
-      "depends_on": ["mcp-postgres", "mcp-redis"]
+      "depends_on": [
+        "mcp-postgres",
+        "mcp-redis"
+      ]
     },
     "mcp-user-mgmt": {
       "version": null,
@@ -82,11 +85,14 @@
       "path": "business/mcp-user-mgmt",
       "port": 3201,
       "transport": "stdio",
-      "description": "User lifecycle — create, update, deactivate.",
+      "description": "User lifecycle \u2014 create, update, deactivate.",
       "owner": "chaghadi",
       "created": null,
       "updated": null,
-      "depends_on": ["mcp-auth", "mcp-postgres"]
+      "depends_on": [
+        "mcp-auth",
+        "mcp-postgres"
+      ]
     },
     "mcp-billing": {
       "version": null,
@@ -96,11 +102,13 @@
       "path": "business/mcp-billing",
       "port": 3202,
       "transport": "stdio",
-      "description": "Billing — Stripe, subscriptions, invoices.",
+      "description": "Billing \u2014 Stripe, subscriptions, invoices.",
       "owner": "chaghadi",
       "created": null,
       "updated": null,
-      "depends_on": ["mcp-user-mgmt"]
+      "depends_on": [
+        "mcp-user-mgmt"
+      ]
     },
     "mcp-notifications": {
       "version": null,
@@ -110,11 +118,13 @@
       "path": "business/mcp-notifications",
       "port": 3203,
       "transport": "stdio",
-      "description": "Notifications — email, SMS, push.",
+      "description": "Notifications \u2014 email, SMS, push.",
       "owner": "chaghadi",
       "created": null,
       "updated": null,
-      "depends_on": ["mcp-user-mgmt"]
+      "depends_on": [
+        "mcp-user-mgmt"
+      ]
     },
     "mcp-analytics": {
       "version": null,
@@ -124,11 +134,13 @@
       "path": "business/mcp-analytics",
       "port": 3204,
       "transport": "stdio",
-      "description": "Analytics — events, funnels, retention.",
+      "description": "Analytics \u2014 events, funnels, retention.",
       "owner": "chaghadi",
       "created": null,
       "updated": null,
-      "depends_on": ["mcp-postgres"]
+      "depends_on": [
+        "mcp-postgres"
+      ]
     },
     "mcp-webhooks": {
       "version": null,
@@ -138,7 +150,7 @@
       "path": "business/mcp-webhooks",
       "port": 3205,
       "transport": "stdio",
-      "description": "Webhooks — verify, route, retry.",
+      "description": "Webhooks \u2014 verify, route, retry.",
       "owner": "chaghadi",
       "created": null,
       "updated": null,
@@ -152,11 +164,13 @@
       "path": "data/mcp-search",
       "port": 3104,
       "transport": "stdio",
-      "description": "Search — index, search, sync.",
+      "description": "Search \u2014 index, search, sync.",
       "owner": "chaghadi",
       "created": null,
       "updated": null,
-      "depends_on": ["mcp-postgres"]
+      "depends_on": [
+        "mcp-postgres"
+      ]
     }
   }
 }

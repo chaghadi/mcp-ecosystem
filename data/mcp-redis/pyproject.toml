@@ -1,0 +1,29 @@
+[project]
+name = "mcp-redis"
+version = "0.1.0"
+description = "Redis MCP for mmiri28 solutions — cache, queue, pub/sub."
+requires-python = ">=3.11"
+dependencies = [
+    "mcp[cli]>=1.0.0",
+    "redis>=5.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[project.scripts]
+mcp-redis = "src.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "fakeredis>=2.20.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

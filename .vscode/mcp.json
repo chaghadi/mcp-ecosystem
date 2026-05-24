@@ -3,7 +3,10 @@
     "mcp-blueprint": {
       "type": "stdio",
       "command": "uv",
-      "args": ["run", "mcp-blueprint"],
+      "args": [
+        "run",
+        "mcp-blueprint"
+      ],
       "cwd": "${workspaceFolder}/dev/mcp-blueprint",
       "env": {
         "BLUEPRINT_DATA_DIR": "${workspaceFolder}/dev/mcp-blueprint/data"
@@ -12,8 +15,20 @@
     "mcp-postgres": {
       "type": "stdio",
       "command": "uv",
-      "args": ["run", "mcp-postgres"],
+      "args": [
+        "run",
+        "mcp-postgres"
+      ],
       "cwd": "${workspaceFolder}/data/mcp-postgres"
+    },
+    "mcp-redis": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-redis"
+      ],
+      "cwd": "${workspaceFolder}/data/mcp-redis"
     }
   }
 }

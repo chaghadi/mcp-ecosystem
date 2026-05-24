@@ -1,0 +1,10 @@
+{
+  "servers": {
+    "mcp-redis": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["run", "mcp-redis"],
+      "cwd": "${workspaceFolder}/data/mcp-redis"
+    }
+  }
+}

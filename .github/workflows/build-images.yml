@@ -6,6 +6,7 @@ on:
     paths:
       - "data/mcp-postgres/**"
       - "data/mcp-redis/**"
+      - "data/mcp-redis/**"
       - "data/mcp-storage/**"
       - "data/mcp-search/**"
       - "business/mcp-auth/**"
@@ -25,6 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       mcp_postgres: ${{ steps.filter.outputs.mcp_postgres }}
+      mcp_redis: ${{ steps.filter.outputs.mcp_redis }}
     steps:
       - uses: actions/checkout@v4
       - uses: dorny/paths-filter@v3
@@ -33,6 +35,8 @@ jobs:
           filters: |
             mcp_postgres:
               - 'data/mcp-postgres/**'
+            mcp_redis:
+              - 'data/mcp-redis/**'
 
   # ── mcp-postgres ─────────────────────────────────────────────────────────
   mcp-postgres:
@@ -76,3 +80,43 @@ jobs:
 
 # Add a new job block above for each MCP as it is built.
 # Copy the mcp-postgres job, change the path and image name.
+
+  # ── mcp-redis ─────────────────────────────────────────────────────────────
+  mcp-redis:
+    needs: changes
+    if: needs.changes.outputs.mcp_redis == 'true'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.OWNER }}/mcp-redis
+          tags: |
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=semver,pattern=v{{version}}
+            type=sha,prefix=sha-,format=short
+
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: data/mcp-redis
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
