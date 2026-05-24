@@ -90,10 +90,29 @@ foreach ($mcp in $mcpFolders) {
         # no .env.example - skip
     } elseif (-not (Test-Path $envFile)) {
         Copy-Item $envExample $envFile
-        Write-Host "      NEEDS CREDENTIALS - .env created from example"
-        $envNeedsCreds += $mcp.Name
+        # Check if the copied file actually has placeholders
+        $content = Get-Content $envFile | Where-Object { $_ -notmatch '^s*#' } | Out-String
+        $placeholders = @(
+            "your-password", "your-account-id", "your-access-key",
+            "your-secret", "your-endpoint", "your-project",
+            "[PASSWORD]", "[YOUR-", "placeholder", "changeme"
+        )
+        $hasPlaceholder = $false
+        foreach ($p in $placeholders) {
+            if ($content -match [regex]::Escape($p)) {
+                $hasPlaceholder = $true
+                break
+            }
+        }
+        if ($hasPlaceholder) {
+            Write-Host "      NEEDS CREDENTIALS - .env created from example"
+            $envNeedsCreds += $mcp.Name
+        } else {
+            Write-Host "      OK - .env created with working defaults"
+            $envReady += $mcp.Name
+        }
     } else {
-        $content = Get-Content $envFile -Raw
+        $content = Get-Content $envFile | Where-Object { $_ -notmatch '^s*#' } | Out-String
         $placeholders = @(
             "your-password", "your-account-id", "your-access-key",
             "your-secret", "your-endpoint", "your-project",
