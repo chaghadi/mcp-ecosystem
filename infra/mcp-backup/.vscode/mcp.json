@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-backup": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-backup"
+      ],
+      "cwd": "${workspaceFolder}/infra/mcp-backup"
+    }
+  }
+}

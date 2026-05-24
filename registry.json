@@ -314,6 +314,67 @@
       "created": "2026-05-24",
       "updated": "2026-05-24",
       "depends_on": []
+    },
+    "mcp-cloudflare": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "infra",
+      "path": "infra/mcp-cloudflare",
+      "port": null,
+      "transport": "stdio",
+      "description": "Cloudflare \u2014 DNS, cache purge, R2 bucket listing.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
+    },
+    "mcp-ssl": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "infra",
+      "path": "infra/mcp-ssl",
+      "port": null,
+      "transport": "stdio",
+      "description": "SSL \u2014 certificate inspection, expiry checks, chain verification.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
+    },
+    "mcp-monitor": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "infra",
+      "path": "infra/mcp-monitor",
+      "port": null,
+      "transport": "stdio",
+      "description": "Uptime monitor \u2014 register endpoints, HTTP checks, uptime history.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": [
+        "mcp-postgres"
+      ]
+    },
+    "mcp-backup": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "infra",
+      "path": "infra/mcp-backup",
+      "port": null,
+      "transport": "stdio",
+      "description": "Backup \u2014 Postgres pg_dump to R2, restore, history.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": [
+        "mcp-postgres",
+        "mcp-storage"
+      ]
     }
   }
 }

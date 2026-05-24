@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-cloudflare": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-cloudflare"
+      ],
+      "cwd": "${workspaceFolder}/infra/mcp-cloudflare"
+    }
+  }
+}

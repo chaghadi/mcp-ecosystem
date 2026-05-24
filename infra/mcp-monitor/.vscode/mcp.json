@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-monitor": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-monitor"
+      ],
+      "cwd": "${workspaceFolder}/infra/mcp-monitor"
+    }
+  }
+}

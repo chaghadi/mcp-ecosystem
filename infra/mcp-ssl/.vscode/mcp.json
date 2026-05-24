@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-ssl": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-ssl"
+      ],
+      "cwd": "${workspaceFolder}/infra/mcp-ssl"
+    }
+  }
+}

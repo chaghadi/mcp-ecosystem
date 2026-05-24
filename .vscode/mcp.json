@@ -191,6 +191,42 @@
         "mcp-deps"
       ],
       "cwd": "${workspaceFolder}/dev/mcp-deps"
+    },
+    "mcp-cloudflare": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-cloudflare"
+      ],
+      "cwd": "${workspaceFolder}/infra/mcp-cloudflare"
+    },
+    "mcp-ssl": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-ssl"
+      ],
+      "cwd": "${workspaceFolder}/infra/mcp-ssl"
+    },
+    "mcp-monitor": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-monitor"
+      ],
+      "cwd": "${workspaceFolder}/infra/mcp-monitor"
+    },
+    "mcp-backup": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-backup"
+      ],
+      "cwd": "${workspaceFolder}/infra/mcp-backup"
     }
   }
 }
