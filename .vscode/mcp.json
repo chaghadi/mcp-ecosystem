@@ -56,6 +56,42 @@
         "mcp-user-mgmt"
       ],
       "cwd": "${workspaceFolder}/business/mcp-user-mgmt"
+    },
+    "mcp-billing": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-billing"
+      ],
+      "cwd": "${workspaceFolder}/business/mcp-billing"
+    },
+    "mcp-notifications": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-notifications"
+      ],
+      "cwd": "${workspaceFolder}/business/mcp-notifications"
+    },
+    "mcp-analytics": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-analytics"
+      ],
+      "cwd": "${workspaceFolder}/business/mcp-analytics"
+    },
+    "mcp-webhooks": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-webhooks"
+      ],
+      "cwd": "${workspaceFolder}/business/mcp-webhooks"
     }
   }
 }

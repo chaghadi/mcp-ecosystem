@@ -1,0 +1,10 @@
+{
+  "servers": {
+    "mcp-analytics": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["run", "mcp-analytics"],
+      "cwd": "${workspaceFolder}/business/mcp-analytics"
+    }
+  }
+}

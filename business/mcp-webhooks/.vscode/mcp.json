@@ -1,0 +1,10 @@
+{
+  "servers": {
+    "mcp-webhooks": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["run", "mcp-webhooks"],
+      "cwd": "${workspaceFolder}/business/mcp-webhooks"
+    }
+  }
+}

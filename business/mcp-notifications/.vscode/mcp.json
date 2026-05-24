@@ -1,0 +1,10 @@
+{
+  "servers": {
+    "mcp-notifications": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["run", "mcp-notifications"],
+      "cwd": "${workspaceFolder}/business/mcp-notifications"
+    }
+  }
+}

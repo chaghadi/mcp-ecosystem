@@ -95,66 +95,67 @@
       ]
     },
     "mcp-billing": {
-      "version": null,
-      "status": "planned",
+      "version": "0.1.0",
+      "status": "active",
       "runtime": "node",
       "category": "business",
       "path": "business/mcp-billing",
-      "port": 3202,
+      "port": null,
       "transport": "stdio",
-      "description": "Billing \u2014 Stripe, subscriptions, invoices.",
+      "description": "Billing \u2014 Stripe (international) + Paystack (Nigeria/Africa).",
       "owner": "chaghadi",
-      "created": null,
-      "updated": null,
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
       "depends_on": [
-        "mcp-user-mgmt"
+        "mcp-postgres"
       ]
     },
     "mcp-notifications": {
-      "version": null,
-      "status": "planned",
+      "version": "0.1.0",
+      "status": "active",
       "runtime": "node",
       "category": "business",
       "path": "business/mcp-notifications",
-      "port": 3203,
+      "port": null,
       "transport": "stdio",
-      "description": "Notifications \u2014 email, SMS, push.",
+      "description": "Notifications \u2014 Resend email, Twilio/Termii SMS (Nigeria auto-routed).",
       "owner": "chaghadi",
-      "created": null,
-      "updated": null,
-      "depends_on": [
-        "mcp-user-mgmt"
-      ]
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
     },
     "mcp-analytics": {
-      "version": null,
-      "status": "planned",
+      "version": "0.1.0",
+      "status": "active",
       "runtime": "python",
       "category": "business",
       "path": "business/mcp-analytics",
-      "port": 3204,
+      "port": null,
       "transport": "stdio",
-      "description": "Analytics \u2014 events, funnels, retention.",
+      "description": "Analytics \u2014 event tracking, funnels, retention (Postgres-based).",
       "owner": "chaghadi",
-      "created": null,
-      "updated": null,
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
       "depends_on": [
         "mcp-postgres"
       ]
     },
     "mcp-webhooks": {
-      "version": null,
-      "status": "planned",
+      "version": "0.1.0",
+      "status": "active",
       "runtime": "node",
       "category": "business",
       "path": "business/mcp-webhooks",
-      "port": 3205,
+      "port": null,
       "transport": "stdio",
-      "description": "Webhooks \u2014 verify, route, retry.",
+      "description": "Webhooks \u2014 register, deliver, verify, retry with exponential backoff.",
       "owner": "chaghadi",
-      "created": null,
-      "updated": null,
-      "depends_on": []
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": [
+        "mcp-postgres",
+        "mcp-redis"
+      ]
     },
     "mcp-search": {
       "version": null,

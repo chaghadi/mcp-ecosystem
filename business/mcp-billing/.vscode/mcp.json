@@ -1,0 +1,10 @@
+{
+  "servers": {
+    "mcp-billing": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["run", "mcp-billing"],
+      "cwd": "${workspaceFolder}/business/mcp-billing"
+    }
+  }
+}
