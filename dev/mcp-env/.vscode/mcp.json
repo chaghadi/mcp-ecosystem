@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-env": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-env"
+      ],
+      "cwd": "${workspaceFolder}/dev/mcp-env"
+    }
+  }
+}

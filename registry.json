@@ -230,6 +230,90 @@
       "depends_on": [
         "mcp-git-ops"
       ]
+    },
+    "mcp-env": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "dev",
+      "path": "dev/mcp-env",
+      "port": null,
+      "transport": "stdio",
+      "description": "Environment variable management \u2014 scan, validate, sync .env files.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
+    },
+    "mcp-docker-ops": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "dev",
+      "path": "dev/mcp-docker-ops",
+      "port": null,
+      "transport": "stdio",
+      "description": "Docker operations \u2014 build, push, run, stop, logs. ghcr.io integration.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
+    },
+    "mcp-test-runner": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "dev",
+      "path": "dev/mcp-test-runner",
+      "port": null,
+      "transport": "stdio",
+      "description": "Test runner \u2014 run pytest across all MCPs, parse and report results.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
+    },
+    "mcp-linter": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "dev",
+      "path": "dev/mcp-linter",
+      "port": null,
+      "transport": "stdio",
+      "description": "Linter \u2014 ruff (Python) + ESLint (JS/TS), auto-fix support.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
+    },
+    "mcp-changelog": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "dev",
+      "path": "dev/mcp-changelog",
+      "port": null,
+      "transport": "stdio",
+      "description": "Changelog management \u2014 add entries, bump versions, release notes.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
+    },
+    "mcp-deps": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "dev",
+      "path": "dev/mcp-deps",
+      "port": null,
+      "transport": "stdio",
+      "description": "Dependency management \u2014 outdated checks, updates, security audits.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
     }
   }
 }

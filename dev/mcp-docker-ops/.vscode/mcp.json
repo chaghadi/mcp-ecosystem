@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-docker-ops": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-docker-ops"
+      ],
+      "cwd": "${workspaceFolder}/dev/mcp-docker-ops"
+    }
+  }
+}

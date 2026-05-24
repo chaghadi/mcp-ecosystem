@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-test-runner": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-test-runner"
+      ],
+      "cwd": "${workspaceFolder}/dev/mcp-test-runner"
+    }
+  }
+}

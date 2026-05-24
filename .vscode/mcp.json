@@ -137,6 +137,60 @@
         "mcp-scaffold"
       ],
       "cwd": "${workspaceFolder}/dev/mcp-scaffold"
+    },
+    "mcp-env": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-env"
+      ],
+      "cwd": "${workspaceFolder}/dev/mcp-env"
+    },
+    "mcp-docker-ops": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-docker-ops"
+      ],
+      "cwd": "${workspaceFolder}/dev/mcp-docker-ops"
+    },
+    "mcp-test-runner": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-test-runner"
+      ],
+      "cwd": "${workspaceFolder}/dev/mcp-test-runner"
+    },
+    "mcp-linter": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-linter"
+      ],
+      "cwd": "${workspaceFolder}/dev/mcp-linter"
+    },
+    "mcp-changelog": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-changelog"
+      ],
+      "cwd": "${workspaceFolder}/dev/mcp-changelog"
+    },
+    "mcp-deps": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-deps"
+      ],
+      "cwd": "${workspaceFolder}/dev/mcp-deps"
     }
   }
 }

@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-changelog": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-changelog"
+      ],
+      "cwd": "${workspaceFolder}/dev/mcp-changelog"
+    }
+  }
+}

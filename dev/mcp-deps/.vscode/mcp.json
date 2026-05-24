@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-deps": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-deps"
+      ],
+      "cwd": "${workspaceFolder}/dev/mcp-deps"
+    }
+  }
+}
