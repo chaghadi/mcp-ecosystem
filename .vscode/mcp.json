@@ -29,6 +29,15 @@
         "mcp-redis"
       ],
       "cwd": "${workspaceFolder}/data/mcp-redis"
+    },
+    "mcp-storage": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-storage"
+      ],
+      "cwd": "${workspaceFolder}/data/mcp-storage"
     }
   }
 }

@@ -47,17 +47,17 @@
       "depends_on": []
     },
     "mcp-storage": {
-      "version": null,
-      "status": "planned",
+      "version": "0.1.0",
+      "status": "active",
       "runtime": "python",
       "category": "data",
       "path": "data/mcp-storage",
-      "port": 3103,
+      "port": null,
       "transport": "stdio",
       "description": "Object storage \u2014 upload, download, signed URLs.",
       "owner": "chaghadi",
-      "created": null,
-      "updated": null,
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
       "depends_on": []
     },
     "mcp-auth": {
