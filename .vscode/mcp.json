@@ -47,6 +47,15 @@
         "mcp-auth"
       ],
       "cwd": "${workspaceFolder}/business/mcp-auth"
+    },
+    "mcp-user-mgmt": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-user-mgmt"
+      ],
+      "cwd": "${workspaceFolder}/business/mcp-user-mgmt"
     }
   }
 }

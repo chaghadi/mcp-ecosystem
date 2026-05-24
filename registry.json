@@ -78,17 +78,17 @@
       ]
     },
     "mcp-user-mgmt": {
-      "version": null,
-      "status": "planned",
+      "version": "0.1.0",
+      "status": "active",
       "runtime": "python",
       "category": "business",
       "path": "business/mcp-user-mgmt",
-      "port": 3201,
+      "port": null,
       "transport": "stdio",
       "description": "User lifecycle \u2014 create, update, deactivate.",
       "owner": "chaghadi",
-      "created": null,
-      "updated": null,
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
       "depends_on": [
         "mcp-auth",
         "mcp-postgres"
