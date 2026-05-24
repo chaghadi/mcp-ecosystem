@@ -19,17 +19,17 @@
       "depends_on": []
     },
     "mcp-postgres": {
-      "version": null,
-      "status": "planned",
+      "version": "0.1.0",
+      "status": "active",
       "runtime": "python",
       "category": "data",
       "path": "data/mcp-postgres",
-      "port": 3101,
+      "port": null,
       "transport": "stdio",
       "description": "PostgreSQL — query, migrate, schema.",
       "owner": "chaghadi",
-      "created": null,
-      "updated": null,
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
       "depends_on": []
     },
     "mcp-redis": {
