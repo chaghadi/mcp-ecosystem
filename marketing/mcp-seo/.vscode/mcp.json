@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-seo": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-seo"
+      ],
+      "cwd": "${workspaceFolder}/marketing/mcp-seo"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-social-post": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-social-post"
+      ],
+      "cwd": "${workspaceFolder}/marketing/mcp-social-post"
+    }
+  }
+}

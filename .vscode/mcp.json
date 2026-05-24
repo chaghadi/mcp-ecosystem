@@ -227,6 +227,69 @@
         "mcp-backup"
       ],
       "cwd": "${workspaceFolder}/infra/mcp-backup"
+    },
+    "mcp-social-post": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-social-post"
+      ],
+      "cwd": "${workspaceFolder}/marketing/mcp-social-post"
+    },
+    "mcp-social-listen": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-social-listen"
+      ],
+      "cwd": "${workspaceFolder}/marketing/mcp-social-listen"
+    },
+    "mcp-content-gen": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-content-gen"
+      ],
+      "cwd": "${workspaceFolder}/marketing/mcp-content-gen"
+    },
+    "mcp-seo": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-seo"
+      ],
+      "cwd": "${workspaceFolder}/marketing/mcp-seo"
+    },
+    "mcp-email-campaign": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-email-campaign"
+      ],
+      "cwd": "${workspaceFolder}/marketing/mcp-email-campaign"
+    },
+    "mcp-ab-test": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-ab-test"
+      ],
+      "cwd": "${workspaceFolder}/marketing/mcp-ab-test"
+    },
+    "mcp-press": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-press"
+      ],
+      "cwd": "${workspaceFolder}/marketing/mcp-press"
     }
   }
 }

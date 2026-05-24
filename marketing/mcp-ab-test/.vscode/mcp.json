@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-ab-test": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-ab-test"
+      ],
+      "cwd": "${workspaceFolder}/marketing/mcp-ab-test"
+    }
+  }
+}

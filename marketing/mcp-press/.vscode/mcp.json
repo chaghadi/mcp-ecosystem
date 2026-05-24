@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-press": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-press"
+      ],
+      "cwd": "${workspaceFolder}/marketing/mcp-press"
+    }
+  }
+}

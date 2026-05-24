@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-email-campaign": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-email-campaign"
+      ],
+      "cwd": "${workspaceFolder}/marketing/mcp-email-campaign"
+    }
+  }
+}

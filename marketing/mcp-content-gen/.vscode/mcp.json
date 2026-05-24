@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-content-gen": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-content-gen"
+      ],
+      "cwd": "${workspaceFolder}/marketing/mcp-content-gen"
+    }
+  }
+}

@@ -375,6 +375,112 @@
         "mcp-postgres",
         "mcp-storage"
       ]
+    },
+    "mcp-social-post": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "marketing",
+      "path": "marketing/mcp-social-post",
+      "port": null,
+      "transport": "stdio",
+      "description": "Social posting \u2014 Twitter/X, LinkedIn, FB/IG stubs.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
+    },
+    "mcp-social-listen": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "marketing",
+      "path": "marketing/mcp-social-listen",
+      "port": null,
+      "transport": "stdio",
+      "description": "Social listening \u2014 Twitter mention tracking, keyword monitoring.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": [
+        "mcp-postgres"
+      ]
+    },
+    "mcp-content-gen": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "marketing",
+      "path": "marketing/mcp-content-gen",
+      "port": null,
+      "transport": "stdio",
+      "description": "AI content generation \u2014 Claude API for blogs, social, email copy.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
+    },
+    "mcp-seo": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "marketing",
+      "path": "marketing/mcp-seo",
+      "port": null,
+      "transport": "stdio",
+      "description": "SEO \u2014 page analysis, meta tags, sitemap, PageSpeed.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": []
+    },
+    "mcp-email-campaign": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "marketing",
+      "path": "marketing/mcp-email-campaign",
+      "port": null,
+      "transport": "stdio",
+      "description": "Email campaigns \u2014 lists, subscribers, broadcasts via Resend.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": [
+        "mcp-postgres"
+      ]
+    },
+    "mcp-ab-test": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "marketing",
+      "path": "marketing/mcp-ab-test",
+      "port": null,
+      "transport": "stdio",
+      "description": "A/B testing \u2014 experiments, consistent variant assignment, results.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": [
+        "mcp-postgres"
+      ]
+    },
+    "mcp-press": {
+      "version": "0.1.0",
+      "status": "active",
+      "runtime": "python",
+      "category": "marketing",
+      "path": "marketing/mcp-press",
+      "port": null,
+      "transport": "stdio",
+      "description": "Press \u2014 releases, media contacts, outreach log.",
+      "owner": "chaghadi",
+      "created": "2026-05-24",
+      "updated": "2026-05-24",
+      "depends_on": [
+        "mcp-postgres"
+      ]
     }
   }
 }

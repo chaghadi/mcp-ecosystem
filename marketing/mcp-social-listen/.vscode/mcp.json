@@ -1,0 +1,13 @@
+{
+  "servers": {
+    "mcp-social-listen": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "mcp-social-listen"
+      ],
+      "cwd": "${workspaceFolder}/marketing/mcp-social-listen"
+    }
+  }
+}
