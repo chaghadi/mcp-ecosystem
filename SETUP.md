@@ -34,15 +34,18 @@ cd mcp-ecosystem
 
 ---
 
-## Step 2 — Set up mcp-blueprint
+## Step 2 — Run the setup script
 
 ```powershell
-cd dev\mcp-blueprint
-uv sync
-copy .env.example .env
+.\scripts\setup.ps1
 ```
 
-Open `.env` and confirm the values look right (defaults are already set for solo use).
+This script handles everything automatically:
+- Runs `uv sync` for every MCP that needs it
+- Copies `.env.example` to `.env` for any new MCPs
+- Reports which `.env` files still need credentials filled in
+
+**Run this after every `git pull`.** It is safe to run multiple times.
 
 ---
 
