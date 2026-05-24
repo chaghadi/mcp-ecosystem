@@ -21,7 +21,7 @@ from src.tools import schema as _schema
 
 mcp = FastMCP(
     "mcp-postgres",
-    description=(
+    instructions=(
         "PostgreSQL MCP for mmiri28 solutions. "
         "Handles queries, schema introspection, and Alembic migrations. "
         "Swap DATABASE_URL to move between Supabase and DigitalOcean."

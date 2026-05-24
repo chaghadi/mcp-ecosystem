@@ -19,7 +19,7 @@ from src.tools import queue as _queue
 
 mcp = FastMCP(
     "mcp-redis",
-    description=(
+    instructions=(
         "Redis MCP for mmiri28 solutions. "
         "Cache (sessions, rate limits), Queue (background jobs), "
         "Pub/Sub (event fan-out). Swap REDIS_URL to move between Upstash and DigitalOcean."

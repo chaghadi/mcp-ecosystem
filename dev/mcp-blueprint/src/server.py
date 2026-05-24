@@ -24,7 +24,7 @@ from src.tools.stubs import not_implemented
 
 mcp = FastMCP(
     "mcp-blueprint",
-    description=(
+    instructions=(
         "Spec-and-gate MCP for mmiri28 solutions. "
         "Owns project lifecycle: brief → spec → design → gate → build → deploy. "
         "Nothing gets built or shipped without passing through it."

@@ -1,6 +1,6 @@
 [project]
 name = "mcp-redis"
-version = "0.1.0"
+version = "0.1.1"
 description = "Redis MCP for mmiri28 solutions — cache, queue, pub/sub."
 requires-python = ">=3.11"
 dependencies = [

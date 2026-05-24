@@ -49,3 +49,8 @@ Phase 3: `gate_pre_deploy`, `diff_spec`, `generate_release_doc`
 - (MAJOR version bumps only — list what broke and migration path)
 
 -->
+-e 
+## [0.1.1] — 2026-05-24 — chaghadi
+
+### Fixed
+- FastMCP constructor: replaced invalid `description=` with `instructions=`

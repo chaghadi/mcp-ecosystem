@@ -22,3 +22,8 @@
 - `subscribe()` intentionally not an MCP tool — see ADR-0006
 - Tests use `fakeredis` — no live Redis needed to run the test suite
 - Docker image: `ghcr.io/chaghadi/mcp-redis`
+-e 
+## [0.1.1] — 2026-05-24 — chaghadi
+
+### Fixed
+- FastMCP constructor: replaced invalid `description=` with `instructions=`

@@ -23,3 +23,8 @@
 - `DATABASE_URL` is the only config needed — same format for Supabase and DO
 - Live DB tests are skipped automatically when `DATABASE_URL` is not set
 - Docker image: `ghcr.io/chaghadi/mcp-postgres`
+-e 
+## [0.1.1] — 2026-05-24 — chaghadi
+
+### Fixed
+- FastMCP constructor: replaced invalid `description=` with `instructions=`
