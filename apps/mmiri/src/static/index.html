@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MMIRI is LIFE</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  <!-- Background grid -->
+  <div class="grid"></div>
+
+  <!-- Banner -->
+  <main class="banner">
+    <p class="brand">mmiri28 solutions</p>
+    <h1>
+      <span class="word-mmiri">MMIRI</span>
+      <span class="word-is">is</span>
+      <span class="word-life">LIFE</span>
+    </h1>
+    <p class="tagline">Validation app — every page view is a real MCP call.</p>
+  </main>
+
+  <!-- Live status panel (bottom-left) -->
+  <aside class="status" id="status">
+    <div class="status-header">
+      <span class="dot" id="dot"></span>
+      <span>mcp-analytics</span>
+    </div>
+    <div class="status-row">
+      <span class="label">status</span>
+      <span class="value" id="mcp-status">checking...</span>
+    </div>
+    <div class="status-row">
+      <span class="label">visits</span>
+      <span class="value" id="visit-count">—</span>
+    </div>
+    <div class="status-row">
+      <span class="label">events tracked</span>
+      <span class="value" id="event-types">—</span>
+    </div>
+  </aside>
+
+  <!-- Footer (bottom-right) -->
+  <footer>
+    <span>powered by the mmiri28 MCP ecosystem</span>
+    <span class="dim">·</span>
+    <span class="dim">47 MCPs</span>
+  </footer>
+
+  <script>
+    async function refreshStatus() {
+      const dot   = document.getElementById("dot");
+      const stat  = document.getElementById("mcp-status");
+      const count = document.getElementById("visit-count");
+      const types = document.getElementById("event-types");
+
+      try {
+        const h = await fetch("/api/health").then(r => r.json());
+        if (h.ok && h.mcp_analytics === "connected") {
+          dot.className = "dot connected";
+          stat.textContent = "connected";
+        } else {
+          dot.className = "dot error";
+          stat.textContent = "error";
+        }
+      } catch (e) {
+        dot.className = "dot error";
+        stat.textContent = "unreachable";
+        return;
+      }
+
+      try {
+        const v = await fetch("/api/visit-count").then(r => r.json());
+        if (v.ok) {
+          count.textContent = v.page_views.toLocaleString();
+          types.textContent = (v.all_events || []).length;
+        }
+      } catch (e) {
+        count.textContent = "?";
+      }
+    }
+
+    refreshStatus();
+    setInterval(refreshStatus, 8000);
+  </script>
+</body>
+</html>
