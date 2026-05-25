@@ -1,0 +1,895 @@
+{
+  "total": 47,
+  "categories": [
+    "data",
+    "business",
+    "dev",
+    "infra",
+    "marketing",
+    "scheduling",
+    "launch",
+    "team"
+  ],
+  "mcps": [
+    {
+      "name": "mcp-postgres",
+      "category": "data",
+      "description": "PostgreSQL \u2014 query, migrate, schema.",
+      "tools": [
+        "health_check",
+        "query",
+        "execute",
+        "list_tables",
+        "describe_table",
+        "migrate_up",
+        "migrate_status",
+        "create_migration"
+      ],
+      "tool_count": 8,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-redis",
+      "category": "data",
+      "description": "Redis \u2014 cache, queue, pub/sub.",
+      "tools": [
+        "health_check",
+        "cache_set",
+        "cache_get",
+        "cache_delete",
+        "cache_exists",
+        "cache_ttl",
+        "cache_set_many",
+        "cache_get_many",
+        "queue_push",
+        "queue_pop",
+        "queue_bpop",
+        "queue_length",
+        "queue_peek",
+        "publish",
+        "pubsub_channels",
+        "pubsub_numsub"
+      ],
+      "tool_count": 16,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-search",
+      "category": "data",
+      "description": "Full-text search \u2014 Postgres tsvector, ranked results, excerpts.",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "index_document",
+        "search",
+        "delete_document",
+        "reindex_app"
+      ],
+      "tool_count": 6,
+      "depends_on": [
+        "mcp-postgres"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-storage",
+      "category": "data",
+      "description": "Object storage \u2014 upload, download, signed URLs.",
+      "tools": [
+        "health_check",
+        "upload_file",
+        "upload_text",
+        "download_file",
+        "download_text",
+        "delete_file",
+        "list_files",
+        "file_exists",
+        "file_info",
+        "copy_file",
+        "get_signed_url",
+        "get_public_url"
+      ],
+      "tool_count": 12,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-analytics",
+      "category": "business",
+      "description": "Analytics \u2014 event tracking, funnels, retention (Postgres-based).",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "track_event",
+        "get_events",
+        "get_event_counts",
+        "get_funnel",
+        "get_user_stats"
+      ],
+      "tool_count": 7,
+      "depends_on": [
+        "mcp-postgres"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-auth",
+      "category": "business",
+      "description": "Auth \u2014 JWT, email/phone/username login, app-scoped roles.",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "register",
+        "login",
+        "logout",
+        "refresh_access_token",
+        "verify_token",
+        "create_app",
+        "create_role",
+        "assign_role",
+        "revoke_role",
+        "get_user_roles",
+        "list_app_roles",
+        "get_user",
+        "update_user",
+        "deactivate_user",
+        "list_users",
+        "oauth_redirect",
+        "oauth_callback",
+        "send_verification",
+        "verify_code"
+      ],
+      "tool_count": 21,
+      "depends_on": [
+        "mcp-postgres",
+        "mcp-redis"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-billing",
+      "category": "business",
+      "description": "Billing \u2014 Stripe (international) + Paystack (Nigeria/Africa).",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "create_customer",
+        "get_customer",
+        "create_payment_intent",
+        "get_payment",
+        "create_plan",
+        "create_subscription",
+        "cancel_subscription",
+        "get_subscription",
+        "create_portal_session",
+        "verify_webhook"
+      ],
+      "tool_count": 12,
+      "depends_on": [
+        "mcp-postgres"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-notifications",
+      "category": "business",
+      "description": "Notifications \u2014 Resend email, Twilio/Termii SMS (Nigeria auto-routed).",
+      "tools": [
+        "health_check",
+        "send_email",
+        "send_bulk_email",
+        "send_sms",
+        "send_push"
+      ],
+      "tool_count": 5,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-user-mgmt",
+      "category": "business",
+      "description": "User lifecycle \u2014 create, update, deactivate.",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "create_profile",
+        "get_profile",
+        "update_profile",
+        "get_preferences",
+        "set_preference",
+        "set_preferences",
+        "delete_preference",
+        "delete_user",
+        "export_user_data",
+        "search_users"
+      ],
+      "tool_count": 12,
+      "depends_on": [
+        "mcp-auth",
+        "mcp-postgres"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-webhooks",
+      "category": "business",
+      "description": "Webhooks \u2014 register, deliver, verify, retry with exponential backoff.",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "register_webhook",
+        "send_webhook",
+        "verify_signature",
+        "list_webhooks",
+        "get_delivery_log",
+        "retry_delivery"
+      ],
+      "tool_count": 8,
+      "depends_on": [
+        "mcp-postgres",
+        "mcp-redis"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-blueprint",
+      "category": "dev",
+      "description": "Spec-and-gate MCP. Owns project lifecycle from brief to deploy. Nothing builds or ships without passing through it.",
+      "tools": [
+        "init_project",
+        "write_prd",
+        "write_tech_spec",
+        "define_api_contracts",
+        "define_schema",
+        "write_user_stories",
+        "check_spec_completeness",
+        "generate_design_tokens",
+        "define_components",
+        "write_wireframe_spec",
+        "generate_style_guide",
+        "push_tokens_to_figma",
+        "gate_pre_build",
+        "gate_pre_deploy",
+        "diff_spec",
+        "generate_release_doc",
+        "get_audit_trail",
+        "list_projects"
+      ],
+      "tool_count": 18,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-changelog",
+      "category": "dev",
+      "description": "Changelog management \u2014 add entries, bump versions, release notes.",
+      "tools": [
+        "get_changelog",
+        "add_changelog_entry",
+        "get_version",
+        "bump_version",
+        "generate_release_notes"
+      ],
+      "tool_count": 5,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-deps",
+      "category": "dev",
+      "description": "Dependency management \u2014 outdated checks, updates, security audits.",
+      "tools": [
+        "check_outdated",
+        "update_deps",
+        "check_all_outdated",
+        "security_audit",
+        "list_deps"
+      ],
+      "tool_count": 5,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-docker-ops",
+      "category": "dev",
+      "description": "Docker operations \u2014 build, push, run, stop, logs. ghcr.io integration.",
+      "tools": [
+        "health_check",
+        "build_image",
+        "push_image",
+        "list_images",
+        "list_containers",
+        "get_logs",
+        "stop_container",
+        "run_compose"
+      ],
+      "tool_count": 8,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-env",
+      "category": "dev",
+      "description": "Environment variable management \u2014 scan, validate, sync .env files.",
+      "tools": [
+        "scan_ecosystem",
+        "get_env",
+        "validate_env",
+        "copy_var_to_mcp"
+      ],
+      "tool_count": 4,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-git-ops",
+      "category": "dev",
+      "description": "Git operations \u2014 GitHub API, repos, branches, PRs, issues.",
+      "tools": [
+        "health_check",
+        "create_repo",
+        "get_repo",
+        "list_repos",
+        "create_branch",
+        "create_pr",
+        "list_prs",
+        "create_issue"
+      ],
+      "tool_count": 8,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-linter",
+      "category": "dev",
+      "description": "Linter \u2014 ruff (Python) + ESLint (JS/TS), auto-fix support.",
+      "tools": [
+        "lint_python",
+        "format_python",
+        "lint_mcp",
+        "lint_all_mcps"
+      ],
+      "tool_count": 4,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-scaffold",
+      "category": "dev",
+      "description": "App scaffold \u2014 generate React/Vite + FastAPI repos wired to MCP ecosystem.",
+      "tools": [
+        "health_check",
+        "scaffold_web_app",
+        "scaffold_api",
+        "list_app_repos"
+      ],
+      "tool_count": 4,
+      "depends_on": [
+        "mcp-git-ops"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-test-runner",
+      "category": "dev",
+      "description": "Test runner \u2014 run pytest across all MCPs, parse and report results.",
+      "tools": [
+        "run_mcp_tests",
+        "run_all_mcp_tests"
+      ],
+      "tool_count": 2,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-backup",
+      "category": "infra",
+      "description": "Backup \u2014 Postgres pg_dump to R2, restore, history.",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "backup_database",
+        "list_backups",
+        "restore_database",
+        "delete_backup"
+      ],
+      "tool_count": 6,
+      "depends_on": [
+        "mcp-postgres",
+        "mcp-storage"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-cloudflare",
+      "category": "infra",
+      "description": "Cloudflare \u2014 DNS, cache purge, R2 bucket listing.",
+      "tools": [
+        "health_check",
+        "list_zones",
+        "get_zone",
+        "list_dns_records",
+        "create_dns_record",
+        "update_dns_record",
+        "delete_dns_record",
+        "purge_cache",
+        "list_r2_buckets"
+      ],
+      "tool_count": 9,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-digitalocean",
+      "category": "infra",
+      "description": "DigitalOcean infra \u2014 App Platform, databases, droplets, domains.",
+      "tools": [
+        "health_check",
+        "list_apps",
+        "get_app",
+        "create_app",
+        "list_databases",
+        "get_database_connection",
+        "list_domains",
+        "list_droplets"
+      ],
+      "tool_count": 8,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-monitor",
+      "category": "infra",
+      "description": "Uptime monitor \u2014 register endpoints, HTTP checks, uptime history.",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "register_endpoint",
+        "check_endpoint",
+        "check_all_due",
+        "get_status",
+        "list_endpoints",
+        "delete_endpoint"
+      ],
+      "tool_count": 8,
+      "depends_on": [
+        "mcp-postgres"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-ssl",
+      "category": "infra",
+      "description": "SSL \u2014 certificate inspection, expiry checks, chain verification.",
+      "tools": [
+        "health_check",
+        "check_ssl",
+        "get_expiration",
+        "check_multiple",
+        "verify_chain"
+      ],
+      "tool_count": 5,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-vercel",
+      "category": "infra",
+      "description": "Vercel deployments \u2014 projects, deployments, env vars.",
+      "tools": [
+        "health_check",
+        "list_projects",
+        "get_project",
+        "list_deployments",
+        "get_deployment",
+        "set_env_var",
+        "create_project"
+      ],
+      "tool_count": 7,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-ab-test",
+      "category": "marketing",
+      "description": "A/B testing \u2014 experiments, consistent variant assignment, results.",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "create_experiment",
+        "get_variant",
+        "track_conversion",
+        "get_results",
+        "list_experiments",
+        "end_experiment"
+      ],
+      "tool_count": 8,
+      "depends_on": [
+        "mcp-postgres"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-content-gen",
+      "category": "marketing",
+      "description": "AI content generation \u2014 Claude API for blogs, social, email copy.",
+      "tools": [
+        "health_check",
+        "generate_blog_post",
+        "generate_social_post",
+        "generate_email_subject",
+        "generate_meta_description",
+        "rewrite",
+        "generate_product_description"
+      ],
+      "tool_count": 7,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-email-campaign",
+      "category": "marketing",
+      "description": "Email campaigns \u2014 lists, subscribers, broadcasts via Resend.",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "create_list",
+        "add_subscriber",
+        "remove_subscriber",
+        "list_subscribers",
+        "send_campaign",
+        "get_campaign_stats"
+      ],
+      "tool_count": 8,
+      "depends_on": [
+        "mcp-postgres"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-press",
+      "category": "marketing",
+      "description": "Press \u2014 releases, media contacts, outreach log.",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "create_press_release",
+        "get_press_release",
+        "list_press_releases",
+        "add_media_contact",
+        "list_media_contacts",
+        "log_outreach",
+        "get_outreach_log"
+      ],
+      "tool_count": 9,
+      "depends_on": [
+        "mcp-postgres"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-seo",
+      "category": "marketing",
+      "description": "SEO \u2014 page analysis, meta tags, sitemap, PageSpeed.",
+      "tools": [
+        "health_check",
+        "analyze_page",
+        "check_meta_tags",
+        "generate_sitemap",
+        "check_robots_txt",
+        "lighthouse_score"
+      ],
+      "tool_count": 6,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-social-listen",
+      "category": "marketing",
+      "description": "Social listening \u2014 Twitter mention tracking, keyword monitoring.",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "track_keyword",
+        "fetch_twitter_mentions",
+        "get_mentions",
+        "list_keywords",
+        "delete_keyword"
+      ],
+      "tool_count": 7,
+      "depends_on": [
+        "mcp-postgres"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-social-post",
+      "category": "marketing",
+      "description": "Social posting \u2014 Twitter/X, LinkedIn, FB/IG stubs.",
+      "tools": [
+        "health_check",
+        "post_twitter",
+        "post_linkedin",
+        "post_to_all",
+        "post_facebook",
+        "post_instagram"
+      ],
+      "tool_count": 6,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-calendar",
+      "category": "scheduling",
+      "description": "Google Calendar \u2014 events, free/busy slots, calendars.",
+      "tools": [
+        "health_check",
+        "list_calendars",
+        "list_events",
+        "create_event",
+        "delete_event",
+        "find_free_slot"
+      ],
+      "tool_count": 6,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-cron",
+      "category": "scheduling",
+      "description": "Cron scheduling \u2014 register jobs, find due, execution history.",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "register_job",
+        "get_due_jobs",
+        "record_execution",
+        "list_jobs",
+        "get_job_history",
+        "pause_job",
+        "resume_job",
+        "delete_job"
+      ],
+      "tool_count": 10,
+      "depends_on": [
+        "mcp-postgres"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-release-plan",
+      "category": "scheduling",
+      "description": "Release planning \u2014 versions, features, status, release notes.",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "create_release",
+        "add_feature",
+        "update_status",
+        "update_feature_status",
+        "list_releases",
+        "get_release",
+        "generate_release_notes"
+      ],
+      "tool_count": 9,
+      "depends_on": [
+        "mcp-postgres"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-standup",
+      "category": "scheduling",
+      "description": "Async standups \u2014 daily check-ins, blockers, team summaries.",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "submit_standup",
+        "get_standup",
+        "list_standups",
+        "get_team_summary"
+      ],
+      "tool_count": 6,
+      "depends_on": [
+        "mcp-postgres"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-time-track",
+      "category": "scheduling",
+      "description": "Time tracking \u2014 timers, manual entries, daily/weekly summaries.",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "start_timer",
+        "stop_timer",
+        "log_time",
+        "get_current_timer",
+        "get_summary",
+        "list_entries"
+      ],
+      "tool_count": 8,
+      "depends_on": [
+        "mcp-postgres"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-appstore",
+      "category": "launch",
+      "description": "App Store Connect \u2014 iOS apps, reviews, TestFlight builds, versions.",
+      "tools": [
+        "health_check",
+        "list_apps",
+        "get_app",
+        "get_reviews",
+        "list_builds",
+        "get_app_versions"
+      ],
+      "tool_count": 6,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-coinbase",
+      "category": "launch",
+      "description": "Crypto payments \u2014 Coinbase Commerce charges + webhook verification.",
+      "tools": [
+        "health_check",
+        "create_charge",
+        "get_charge",
+        "list_charges",
+        "verify_webhook"
+      ],
+      "tool_count": 5,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-playstore",
+      "category": "launch",
+      "description": "Google Play Console \u2014 Android listings, reviews, release tracks.",
+      "tools": [
+        "health_check",
+        "get_app_listing",
+        "list_reviews",
+        "list_tracks"
+      ],
+      "tool_count": 4,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-product-hunt",
+      "category": "launch",
+      "description": "Product Hunt \u2014 search, today's launches, post lookups.",
+      "tools": [
+        "health_check",
+        "get_post",
+        "get_todays_posts",
+        "search_posts"
+      ],
+      "tool_count": 4,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-waitlist",
+      "category": "launch",
+      "description": "Waitlist \u2014 signups, referral codes, top-N invites, stats.",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "create_waitlist",
+        "join_waitlist",
+        "get_position",
+        "list_top",
+        "invite_top",
+        "get_waitlist_stats",
+        "list_waitlists"
+      ],
+      "tool_count": 9,
+      "depends_on": [
+        "mcp-postgres"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-code-review",
+      "category": "team",
+      "description": "Code review \u2014 PR requests, reviewer assignments, stats, nudges.",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "register_pr",
+        "assign_reviewer",
+        "complete_review",
+        "list_pending_reviews",
+        "get_review_stats",
+        "nudge_pending"
+      ],
+      "tool_count": 8,
+      "depends_on": [
+        "mcp-postgres"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-docs",
+      "category": "team",
+      "description": "Internal docs \u2014 markdown in Postgres, search by title/content/tags.",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "create_doc",
+        "get_doc",
+        "update_doc",
+        "delete_doc",
+        "search_docs",
+        "list_docs"
+      ],
+      "tool_count": 8,
+      "depends_on": [
+        "mcp-postgres"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-figma-ops",
+      "category": "team",
+      "description": "Figma \u2014 file info, components, image exports, comments, variables.",
+      "tools": [
+        "health_check",
+        "get_file",
+        "get_file_nodes",
+        "get_components",
+        "export_images",
+        "get_comments",
+        "get_variables"
+      ],
+      "tool_count": 7,
+      "depends_on": [],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-onboarding",
+      "category": "team",
+      "description": "Onboarding \u2014 templates, assignments, step completion tracking.",
+      "tools": [
+        "health_check",
+        "run_migrations",
+        "create_template",
+        "start_onboarding",
+        "complete_step",
+        "get_onboarding_progress",
+        "list_active_onboardings",
+        "complete_onboarding"
+      ],
+      "tool_count": 8,
+      "depends_on": [
+        "mcp-postgres"
+      ],
+      "status": "unknown"
+    },
+    {
+      "name": "mcp-slack-ops",
+      "category": "team",
+      "description": "Slack \u2014 messages, DMs, channels, users, reactions, file uploads.",
+      "tools": [
+        "health_check",
+        "send_message",
+        "send_dm",
+        "list_channels",
+        "list_users",
+        "create_channel",
+        "add_reaction"
+      ],
+      "tool_count": 7,
+      "depends_on": [],
+      "status": "unknown"
+    }
+  ]
+}

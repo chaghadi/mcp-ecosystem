@@ -1,0 +1,1881 @@
+{
+  "mcp-postgres": {
+    "name": "mcp-postgres",
+    "category": "data",
+    "description": "",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Check database connectivity."
+      },
+      {
+        "name": "query",
+        "doc": "Execute a SELECT query and return rows as a list of dicts."
+      },
+      {
+        "name": "execute",
+        "doc": "Execute an INSERT, UPDATE, or DELETE statement."
+      },
+      {
+        "name": "list_tables",
+        "doc": "List all user-created tables in a PostgreSQL schema."
+      },
+      {
+        "name": "describe_table",
+        "doc": "Describe a table: columns, types, nullability, defaults, constraints, indexes."
+      },
+      {
+        "name": "migrate_up",
+        "doc": "Run pending Alembic migrations."
+      },
+      {
+        "name": "migrate_status",
+        "doc": "Show the current Alembic revision and pending migrations."
+      },
+      {
+        "name": "create_migration",
+        "doc": "Create a new Alembic migration file in migrations/versions/."
+      }
+    ],
+    "tool_count": 8,
+    "status": "live"
+  },
+  "mcp-redis": {
+    "name": "mcp-redis",
+    "category": "data",
+    "description": "",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Ping Redis and return version and connection status."
+      },
+      {
+        "name": "cache_set",
+        "doc": "Set a cache key to a value with optional TTL."
+      },
+      {
+        "name": "cache_get",
+        "doc": "Get a cached value by key."
+      },
+      {
+        "name": "cache_delete",
+        "doc": "Delete one or more cache keys."
+      },
+      {
+        "name": "cache_exists",
+        "doc": "Check whether a cache key exists."
+      },
+      {
+        "name": "cache_ttl",
+        "doc": "Get remaining TTL of a key in seconds."
+      },
+      {
+        "name": "cache_set_many",
+        "doc": "Set multiple keys in a single atomic pipeline."
+      },
+      {
+        "name": "cache_get_many",
+        "doc": "Get multiple keys in a single pipeline."
+      },
+      {
+        "name": "queue_push",
+        "doc": "Push a job onto a FIFO queue."
+      },
+      {
+        "name": "queue_pop",
+        "doc": "Pop the next job from the queue (non-blocking)."
+      },
+      {
+        "name": "queue_bpop",
+        "doc": "Blocking pop \u2014 wait up to timeout seconds for a job."
+      },
+      {
+        "name": "queue_length",
+        "doc": "Return the number of jobs currently waiting in a queue."
+      },
+      {
+        "name": "queue_peek",
+        "doc": "Preview the next jobs in a queue without removing them."
+      },
+      {
+        "name": "publish",
+        "doc": "Publish a message to a channel."
+      },
+      {
+        "name": "pubsub_channels",
+        "doc": "List active pub/sub channels (channels with at least one subscriber)."
+      },
+      {
+        "name": "pubsub_numsub",
+        "doc": "Return subscriber count for one or more channels."
+      }
+    ],
+    "tool_count": 16,
+    "status": "live"
+  },
+  "mcp-search": {
+    "name": "mcp-search",
+    "category": "data",
+    "description": "Full-text search MCP for mmiri28 solutions. Postgres tsvector \u2014 no extra infrastructure. Index, search, delete, reindex.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": ""
+      },
+      {
+        "name": "run_migrations",
+        "doc": "Create the search_index table."
+      },
+      {
+        "name": "index_document",
+        "doc": "Add or update a document in the search index."
+      },
+      {
+        "name": "search",
+        "doc": "Full-text search with relevance ranking and excerpts."
+      },
+      {
+        "name": "delete_document",
+        "doc": "Remove a document from the search index."
+      },
+      {
+        "name": "reindex_app",
+        "doc": "Rebuild search vectors for all documents in an app."
+      }
+    ],
+    "tool_count": 6,
+    "status": "pending"
+  },
+  "mcp-storage": {
+    "name": "mcp-storage",
+    "category": "data",
+    "description": "",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Verify R2 credentials by listing buckets."
+      },
+      {
+        "name": "upload_file",
+        "doc": "Upload a local file to R2."
+      },
+      {
+        "name": "upload_text",
+        "doc": "Upload a string directly to R2 \u2014 no local file needed."
+      },
+      {
+        "name": "download_file",
+        "doc": "Download a file from R2 to a local path."
+      },
+      {
+        "name": "download_text",
+        "doc": "Download a file from R2 and return its content as a string."
+      },
+      {
+        "name": "delete_file",
+        "doc": "Delete a file from R2."
+      },
+      {
+        "name": "list_files",
+        "doc": "List files in a bucket with optional prefix filter."
+      },
+      {
+        "name": "file_exists",
+        "doc": "Check whether a file exists in R2."
+      },
+      {
+        "name": "file_info",
+        "doc": "Get file metadata: size, content type, last modified, public URL."
+      },
+      {
+        "name": "copy_file",
+        "doc": "Copy a file within R2 \u2014 same bucket or across buckets."
+      },
+      {
+        "name": "get_signed_url",
+        "doc": "Generate a presigned URL for temporary access to a private file."
+      },
+      {
+        "name": "get_public_url",
+        "doc": "Return the stable public URL for a file in a public bucket."
+      }
+    ],
+    "tool_count": 12,
+    "status": "live"
+  },
+  "mcp-analytics": {
+    "name": "mcp-analytics",
+    "category": "business",
+    "description": "",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": ""
+      },
+      {
+        "name": "run_migrations",
+        "doc": "Create the events table."
+      },
+      {
+        "name": "track_event",
+        "doc": "Track a user event."
+      },
+      {
+        "name": "get_events",
+        "doc": "Query events with filters."
+      },
+      {
+        "name": "get_event_counts",
+        "doc": "Get event counts grouped by event name."
+      },
+      {
+        "name": "get_funnel",
+        "doc": "Calculate funnel conversion rates between ordered event steps."
+      },
+      {
+        "name": "get_user_stats",
+        "doc": "Get event statistics for a user \u2014 total events, top events, first/last seen."
+      }
+    ],
+    "tool_count": 7,
+    "status": "pending"
+  },
+  "mcp-auth": {
+    "name": "mcp-auth",
+    "category": "business",
+    "description": "",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Verify database and Redis connectivity for mcp-auth."
+      },
+      {
+        "name": "run_migrations",
+        "doc": "Run pending Alembic migrations for the auth schema."
+      },
+      {
+        "name": "register",
+        "doc": "Register a new user account."
+      },
+      {
+        "name": "login",
+        "doc": "Authenticate a user."
+      },
+      {
+        "name": "logout",
+        "doc": "Revoke a refresh token and optionally blacklist the access token."
+      },
+      {
+        "name": "refresh_access_token",
+        "doc": "Exchange a valid refresh token for a new access token."
+      },
+      {
+        "name": "verify_token",
+        "doc": "Validate an access token and return user identity and roles."
+      },
+      {
+        "name": "create_app",
+        "doc": "Register an app in the ecosystem."
+      },
+      {
+        "name": "create_role",
+        "doc": "Define a role for an app."
+      },
+      {
+        "name": "assign_role",
+        "doc": "Assign a role to a user in an app."
+      },
+      {
+        "name": "revoke_role",
+        "doc": "Remove a role from a user in an app."
+      },
+      {
+        "name": "get_user_roles",
+        "doc": "Get all roles for a user, optionally filtered to one app."
+      },
+      {
+        "name": "list_app_roles",
+        "doc": "List all defined roles for an app."
+      },
+      {
+        "name": "get_user",
+        "doc": "Look up a user by UUID, email, phone, or username."
+      },
+      {
+        "name": "update_user",
+        "doc": "Update user fields."
+      },
+      {
+        "name": "deactivate_user",
+        "doc": "Deactivate a user account (soft delete)."
+      },
+      {
+        "name": "list_users",
+        "doc": "List users with optional filtering by app and role."
+      },
+      {
+        "name": "oauth_redirect",
+        "doc": "[STUB] Get the OAuth redirect URL for a provider."
+      },
+      {
+        "name": "oauth_callback",
+        "doc": "[STUB] Handle OAuth provider callback."
+      },
+      {
+        "name": "send_verification",
+        "doc": "[STUB] Send verification code."
+      },
+      {
+        "name": "verify_code",
+        "doc": "[STUB] Verify email/phone code."
+      }
+    ],
+    "tool_count": 21,
+    "status": "live"
+  },
+  "mcp-billing": {
+    "name": "mcp-billing",
+    "category": "business",
+    "description": "",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Check connectivity to Stripe and Paystack."
+      },
+      {
+        "name": "run_migrations",
+        "doc": "Run pending Alembic migrations for billing tables."
+      },
+      {
+        "name": "create_customer",
+        "doc": "Create a billing customer in Stripe or Paystack."
+      },
+      {
+        "name": "get_customer",
+        "doc": "Get a billing customer by their provider ID."
+      },
+      {
+        "name": "create_payment_intent",
+        "doc": "Create a payment for a one-time charge."
+      },
+      {
+        "name": "get_payment",
+        "doc": "Get a payment/transaction by its provider ID or reference."
+      },
+      {
+        "name": "create_plan",
+        "doc": "Create a subscription plan/price."
+      },
+      {
+        "name": "create_subscription",
+        "doc": "Subscribe a customer to a plan."
+      },
+      {
+        "name": "cancel_subscription",
+        "doc": "Cancel a subscription."
+      },
+      {
+        "name": "get_subscription",
+        "doc": "Get a subscription by its provider ID."
+      },
+      {
+        "name": "create_portal_session",
+        "doc": "Create a billing portal session (Stripe only)."
+      },
+      {
+        "name": "verify_webhook",
+        "doc": "Verify and parse an incoming webhook from Stripe or Paystack."
+      }
+    ],
+    "tool_count": 12,
+    "status": "pending"
+  },
+  "mcp-notifications": {
+    "name": "mcp-notifications",
+    "category": "business",
+    "description": "",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Check notification provider configuration."
+      },
+      {
+        "name": "send_email",
+        "doc": "Send an email via Resend."
+      },
+      {
+        "name": "send_bulk_email",
+        "doc": "Send the same email to multiple recipients in one call."
+      },
+      {
+        "name": "send_sms",
+        "doc": "Send an SMS."
+      },
+      {
+        "name": "send_push",
+        "doc": "[STUB] Send a push notification."
+      }
+    ],
+    "tool_count": 5,
+    "status": "pending"
+  },
+  "mcp-user-mgmt": {
+    "name": "mcp-user-mgmt",
+    "category": "business",
+    "description": "",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Verify database connectivity and check table existence."
+      },
+      {
+        "name": "run_migrations",
+        "doc": "Run pending Alembic migrations for the user-mgmt schema."
+      },
+      {
+        "name": "create_profile",
+        "doc": "Create an extended profile for a user."
+      },
+      {
+        "name": "get_profile",
+        "doc": "Fetch the full profile for a user, including auth fields."
+      },
+      {
+        "name": "update_profile",
+        "doc": "Update profile fields."
+      },
+      {
+        "name": "get_preferences",
+        "doc": "Get preferences for a user."
+      },
+      {
+        "name": "set_preference",
+        "doc": "Set a single preference key for a user."
+      },
+      {
+        "name": "set_preferences",
+        "doc": "Set multiple preference keys at once (merges with existing)."
+      },
+      {
+        "name": "delete_preference",
+        "doc": "Delete a single preference key."
+      },
+      {
+        "name": "delete_user",
+        "doc": "Permanently delete a user and all their data (GDPR right to erasure)."
+      },
+      {
+        "name": "export_user_data",
+        "doc": "Export all data held for a user (GDPR Article 20 \u2014 right to data portability)."
+      },
+      {
+        "name": "search_users",
+        "doc": "Search users by display name, email, username, or phone."
+      }
+    ],
+    "tool_count": 12,
+    "status": "live"
+  },
+  "mcp-webhooks": {
+    "name": "mcp-webhooks",
+    "category": "business",
+    "description": "",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": ""
+      },
+      {
+        "name": "run_migrations",
+        "doc": ""
+      },
+      {
+        "name": "register_webhook",
+        "doc": "Register a webhook endpoint."
+      },
+      {
+        "name": "send_webhook",
+        "doc": "Deliver an event to all matching registered endpoints."
+      },
+      {
+        "name": "verify_signature",
+        "doc": "Verify a webhook's HMAC-SHA256 signature."
+      },
+      {
+        "name": "list_webhooks",
+        "doc": "List all registered webhook endpoints for an app."
+      },
+      {
+        "name": "get_delivery_log",
+        "doc": "Get delivery history for a webhook endpoint."
+      },
+      {
+        "name": "retry_delivery",
+        "doc": "Manually retry a failed webhook delivery."
+      }
+    ],
+    "tool_count": 8,
+    "status": "pending"
+  },
+  "mcp-blueprint": {
+    "name": "mcp-blueprint",
+    "category": "dev",
+    "description": "",
+    "tools": [
+      {
+        "name": "init_project",
+        "doc": "Initialize a new project spec from a plain-language brief."
+      },
+      {
+        "name": "write_prd",
+        "doc": "[STUB] Generate a Product Requirements Document from the project brief."
+      },
+      {
+        "name": "write_tech_spec",
+        "doc": "[STUB] Derive the technical specification from the PRD."
+      },
+      {
+        "name": "define_api_contracts",
+        "doc": "[STUB] Generate OpenAPI 3."
+      },
+      {
+        "name": "define_schema",
+        "doc": "[STUB] Generate the database schema from the tech spec."
+      },
+      {
+        "name": "write_user_stories",
+        "doc": "[STUB] Generate epics and user stories from the PRD."
+      },
+      {
+        "name": "check_spec_completeness",
+        "doc": "Score the completeness of a project spec (0-100)."
+      },
+      {
+        "name": "generate_design_tokens",
+        "doc": "[STUB] Generate design tokens (colors, typography, spacing, shadows) as tokens."
+      },
+      {
+        "name": "define_components",
+        "doc": "[STUB] Generate component inventory with props, states, and mapped API endpoints."
+      },
+      {
+        "name": "write_wireframe_spec",
+        "doc": "[STUB] Generate structured screen descriptions from the component inventory."
+      },
+      {
+        "name": "generate_style_guide",
+        "doc": "[STUB] Generate the living style guide from design tokens and components."
+      },
+      {
+        "name": "push_tokens_to_figma",
+        "doc": "[STUB] Push design tokens to Figma via mcp-figma-ops."
+      },
+      {
+        "name": "gate_pre_build",
+        "doc": "Validate a project is ready to be built."
+      },
+      {
+        "name": "gate_pre_deploy",
+        "doc": "[STUB] Validate implementation matches spec before deployment."
+      },
+      {
+        "name": "diff_spec",
+        "doc": "[STUB] Compare two spec versions and output a structured diff."
+      },
+      {
+        "name": "generate_release_doc",
+        "doc": "[STUB] Assemble a release document from spec diff, user stories, and API changes."
+      },
+      {
+        "name": "get_audit_trail",
+        "doc": "Return the full audit trail for a project."
+      },
+      {
+        "name": "list_projects",
+        "doc": "List all initialized projects and their last recorded action."
+      }
+    ],
+    "tool_count": 18,
+    "status": "pending"
+  },
+  "mcp-changelog": {
+    "name": "mcp-changelog",
+    "category": "dev",
+    "description": "Changelog management MCP for mmiri28 solutions. Generate entries, read changelogs, bump versions, generate release notes from git log.",
+    "tools": [
+      {
+        "name": "get_changelog",
+        "doc": "Read the CHANGELOG."
+      },
+      {
+        "name": "add_changelog_entry",
+        "doc": "Add a new entry to an MCP's CHANGELOG."
+      },
+      {
+        "name": "get_version",
+        "doc": "Get the current version of an MCP from pyproject."
+      },
+      {
+        "name": "bump_version",
+        "doc": "Bump the version in pyproject."
+      },
+      {
+        "name": "generate_release_notes",
+        "doc": "Generate release notes from recent git commits."
+      }
+    ],
+    "tool_count": 5,
+    "status": "pending"
+  },
+  "mcp-deps": {
+    "name": "mcp-deps",
+    "category": "dev",
+    "description": "Dependency management MCP for mmiri28 solutions. Check outdated packages, update deps, run security audits across all MCPs.",
+    "tools": [
+      {
+        "name": "check_outdated",
+        "doc": "Check for outdated dependencies in an MCP."
+      },
+      {
+        "name": "update_deps",
+        "doc": "Update all dependencies in an MCP to latest compatible versions."
+      },
+      {
+        "name": "check_all_outdated",
+        "doc": "Check outdated dependencies across all MCPs."
+      },
+      {
+        "name": "security_audit",
+        "doc": "Run a security audit on an MCP's dependencies."
+      },
+      {
+        "name": "list_deps",
+        "doc": "List all installed dependencies for an MCP."
+      }
+    ],
+    "tool_count": 5,
+    "status": "pending"
+  },
+  "mcp-docker-ops": {
+    "name": "mcp-docker-ops",
+    "category": "dev",
+    "description": "Docker operations MCP for mmiri28 solutions. Build and push to ghcr.io/chaghadi. Run, stop, and inspect containers.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Check docker is running and return version info."
+      },
+      {
+        "name": "build_image",
+        "doc": "Build a Docker image for an MCP."
+      },
+      {
+        "name": "push_image",
+        "doc": "Push a built image to ghcr."
+      },
+      {
+        "name": "list_images",
+        "doc": "List Docker images, optionally filtered by name."
+      },
+      {
+        "name": "list_containers",
+        "doc": "List running (or all) Docker containers."
+      },
+      {
+        "name": "get_logs",
+        "doc": "Get recent logs from a container."
+      },
+      {
+        "name": "stop_container",
+        "doc": "Stop a running container."
+      },
+      {
+        "name": "run_compose",
+        "doc": "Run docker-compose."
+      }
+    ],
+    "tool_count": 8,
+    "status": "pending"
+  },
+  "mcp-env": {
+    "name": "mcp-env",
+    "category": "dev",
+    "description": "Environment variable management for mmiri28 solutions. Scan, validate, and generate .env files across all MCPs and apps.",
+    "tools": [
+      {
+        "name": "scan_ecosystem",
+        "doc": "Scan all MCPs in the ecosystem and report."
+      },
+      {
+        "name": "get_env",
+        "doc": "Read the current."
+      },
+      {
+        "name": "validate_env",
+        "doc": "Validate that all required env vars are set for an MCP."
+      },
+      {
+        "name": "copy_var_to_mcp",
+        "doc": "Copy an env var value from one MCP's."
+      }
+    ],
+    "tool_count": 4,
+    "status": "pending"
+  },
+  "mcp-git-ops": {
+    "name": "mcp-git-ops",
+    "category": "dev",
+    "description": "GitHub operations MCP for mmiri28 solutions. Create repos, branches, PRs, issues. All under the chaghadi account.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Verify GitHub token and return authenticated user info."
+      },
+      {
+        "name": "create_repo",
+        "doc": "Create a new GitHub repository."
+      },
+      {
+        "name": "get_repo",
+        "doc": "Get info about a repository."
+      },
+      {
+        "name": "list_repos",
+        "doc": "List repositories for the configured owner."
+      },
+      {
+        "name": "create_branch",
+        "doc": "Create a new branch in a repository."
+      },
+      {
+        "name": "create_pr",
+        "doc": "Create a pull request."
+      },
+      {
+        "name": "list_prs",
+        "doc": "List pull requests."
+      },
+      {
+        "name": "create_issue",
+        "doc": "Create a GitHub issue."
+      }
+    ],
+    "tool_count": 8,
+    "status": "pending"
+  },
+  "mcp-linter": {
+    "name": "mcp-linter",
+    "category": "dev",
+    "description": "Linter MCP for mmiri28 solutions. Ruff for Python (format + lint), ESLint for JS/TS. Auto-fix support.",
+    "tools": [
+      {
+        "name": "lint_python",
+        "doc": "Lint Python files with ruff."
+      },
+      {
+        "name": "format_python",
+        "doc": "Format Python files with ruff format."
+      },
+      {
+        "name": "lint_mcp",
+        "doc": "Lint all Python files in an MCP."
+      },
+      {
+        "name": "lint_all_mcps",
+        "doc": "Run ruff on all MCP source files in the ecosystem."
+      }
+    ],
+    "tool_count": 4,
+    "status": "pending"
+  },
+  "mcp-scaffold": {
+    "name": "mcp-scaffold",
+    "category": "dev",
+    "description": "App scaffold MCP for mmiri28 solutions. Generates new app repos wired to the MCP ecosystem. Creates React/Vite, FastAPI, and mobile app structures.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Verify scaffold credentials."
+      },
+      {
+        "name": "scaffold_web_app",
+        "doc": "Generate a new React/Vite web app repo."
+      },
+      {
+        "name": "scaffold_api",
+        "doc": "Generate a new FastAPI backend repo."
+      },
+      {
+        "name": "list_app_repos",
+        "doc": "List all app-* repos under the configured owner."
+      }
+    ],
+    "tool_count": 4,
+    "status": "pending"
+  },
+  "mcp-test-runner": {
+    "name": "mcp-test-runner",
+    "category": "dev",
+    "description": "Test runner MCP for mmiri28 solutions. Run pytest across all MCPs or specific ones. Parse results and report failures.",
+    "tools": [
+      {
+        "name": "run_mcp_tests",
+        "doc": "Run tests for a specific MCP."
+      },
+      {
+        "name": "run_all_mcp_tests",
+        "doc": "Run tests across all MCPs in the ecosystem."
+      }
+    ],
+    "tool_count": 2,
+    "status": "pending"
+  },
+  "mcp-backup": {
+    "name": "mcp-backup",
+    "category": "infra",
+    "description": "Database backup MCP for mmiri28 solutions. Postgres pg_dump uploaded to Cloudflare R2. Backup, restore, list, schedule.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Verify Postgres and R2 connectivity."
+      },
+      {
+        "name": "run_migrations",
+        "doc": ""
+      },
+      {
+        "name": "backup_database",
+        "doc": "Dump a Postgres database and upload to R2."
+      },
+      {
+        "name": "list_backups",
+        "doc": "List recent database backups."
+      },
+      {
+        "name": "restore_database",
+        "doc": "Restore a database from a backup."
+      },
+      {
+        "name": "delete_backup",
+        "doc": "Delete a backup from R2 and the history."
+      }
+    ],
+    "tool_count": 6,
+    "status": "pending"
+  },
+  "mcp-cloudflare": {
+    "name": "mcp-cloudflare",
+    "category": "infra",
+    "description": "Cloudflare MCP for mmiri28 solutions. Manage DNS records, purge cache, list R2 buckets. Companion to mcp-storage for object operations.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Verify Cloudflare API token."
+      },
+      {
+        "name": "list_zones",
+        "doc": "List all domains (zones) under the Cloudflare account."
+      },
+      {
+        "name": "get_zone",
+        "doc": "Get zone details for a specific domain."
+      },
+      {
+        "name": "list_dns_records",
+        "doc": "List all DNS records for a zone."
+      },
+      {
+        "name": "create_dns_record",
+        "doc": "Create a DNS record."
+      },
+      {
+        "name": "update_dns_record",
+        "doc": "Update an existing DNS record."
+      },
+      {
+        "name": "delete_dns_record",
+        "doc": "Delete a DNS record."
+      },
+      {
+        "name": "purge_cache",
+        "doc": "Purge Cloudflare cache."
+      },
+      {
+        "name": "list_r2_buckets",
+        "doc": "List R2 buckets in the Cloudflare account."
+      }
+    ],
+    "tool_count": 9,
+    "status": "pending"
+  },
+  "mcp-digitalocean": {
+    "name": "mcp-digitalocean",
+    "category": "infra",
+    "description": "DigitalOcean infrastructure MCP for mmiri28 solutions. Manage apps, databases, droplets, and domains.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Verify DigitalOcean API token."
+      },
+      {
+        "name": "list_apps",
+        "doc": "List all App Platform apps."
+      },
+      {
+        "name": "get_app",
+        "doc": "Get details of a DO App Platform app."
+      },
+      {
+        "name": "create_app",
+        "doc": "Create a new App Platform app from a spec dict."
+      },
+      {
+        "name": "list_databases",
+        "doc": "List all managed databases."
+      },
+      {
+        "name": "get_database_connection",
+        "doc": "Get connection details for a managed database."
+      },
+      {
+        "name": "list_domains",
+        "doc": "List all domains registered in DigitalOcean."
+      },
+      {
+        "name": "list_droplets",
+        "doc": "List all Droplets."
+      }
+    ],
+    "tool_count": 8,
+    "status": "pending"
+  },
+  "mcp-monitor": {
+    "name": "mcp-monitor",
+    "category": "infra",
+    "description": "Uptime monitoring MCP for mmiri28 solutions. Register endpoints, run HTTP checks, store results, calculate uptime percentages.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": ""
+      },
+      {
+        "name": "run_migrations",
+        "doc": ""
+      },
+      {
+        "name": "register_endpoint",
+        "doc": "Register an endpoint for uptime monitoring."
+      },
+      {
+        "name": "check_endpoint",
+        "doc": "Run a single check against a registered endpoint."
+      },
+      {
+        "name": "check_all_due",
+        "doc": "Check all endpoints that are due (interval has elapsed since last check)."
+      },
+      {
+        "name": "get_status",
+        "doc": "Get the current status and uptime percentage for an endpoint."
+      },
+      {
+        "name": "list_endpoints",
+        "doc": "List all registered endpoints, optionally filtered by app."
+      },
+      {
+        "name": "delete_endpoint",
+        "doc": "Remove an endpoint from monitoring (and all its check history)."
+      }
+    ],
+    "tool_count": 8,
+    "status": "pending"
+  },
+  "mcp-ssl": {
+    "name": "mcp-ssl",
+    "category": "infra",
+    "description": "SSL/TLS certificate inspection for mmiri28 solutions. Check expiry, chains, fingerprints, issuer for any HTTPS endpoint.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "mcp-ssl needs no credentials \u2014 always ready."
+      },
+      {
+        "name": "check_ssl",
+        "doc": "Inspect the SSL certificate for a domain."
+      },
+      {
+        "name": "get_expiration",
+        "doc": "Quick check \u2014 days until SSL cert expires for a domain."
+      },
+      {
+        "name": "check_multiple",
+        "doc": "Check SSL expiration for multiple domains in one call."
+      },
+      {
+        "name": "verify_chain",
+        "doc": "Verify that the certificate chain is trusted by the system CA store."
+      }
+    ],
+    "tool_count": 5,
+    "status": "pending"
+  },
+  "mcp-vercel": {
+    "name": "mcp-vercel",
+    "category": "infra",
+    "description": "Vercel deployment MCP for mmiri28 solutions. Deploy projects, manage env vars, check deployment status.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Verify Vercel token."
+      },
+      {
+        "name": "list_projects",
+        "doc": "List all Vercel projects."
+      },
+      {
+        "name": "get_project",
+        "doc": "Get details for a Vercel project."
+      },
+      {
+        "name": "list_deployments",
+        "doc": "List recent deployments for a project."
+      },
+      {
+        "name": "get_deployment",
+        "doc": "Get status of a specific deployment."
+      },
+      {
+        "name": "set_env_var",
+        "doc": "Set an environment variable on a Vercel project."
+      },
+      {
+        "name": "create_project",
+        "doc": "Create a new Vercel project."
+      }
+    ],
+    "tool_count": 7,
+    "status": "pending"
+  },
+  "mcp-ab-test": {
+    "name": "mcp-ab-test",
+    "category": "marketing",
+    "description": "A/B testing MCP for mmiri28 solutions. Create experiments, assign variants consistently per user, track conversions, calculate results.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": ""
+      },
+      {
+        "name": "run_migrations",
+        "doc": ""
+      },
+      {
+        "name": "create_experiment",
+        "doc": "Create a new A/B test experiment."
+      },
+      {
+        "name": "get_variant",
+        "doc": "Get the variant assigned to a user for an experiment."
+      },
+      {
+        "name": "track_conversion",
+        "doc": "Record a conversion event for an experiment."
+      },
+      {
+        "name": "get_results",
+        "doc": "Get conversion rates and stats per variant."
+      },
+      {
+        "name": "list_experiments",
+        "doc": "List all experiments, optionally filtered by app."
+      },
+      {
+        "name": "end_experiment",
+        "doc": "End an experiment, optionally recording the winning variant."
+      }
+    ],
+    "tool_count": 8,
+    "status": "pending"
+  },
+  "mcp-content-gen": {
+    "name": "mcp-content-gen",
+    "category": "marketing",
+    "description": "AI content generation MCP for mmiri28 solutions. Uses Claude API to generate blog posts, social posts, email subjects, and other marketing copy.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": ""
+      },
+      {
+        "name": "generate_blog_post",
+        "doc": "Generate a blog post on a given topic."
+      },
+      {
+        "name": "generate_social_post",
+        "doc": "Generate a social media post optimized for a specific platform."
+      },
+      {
+        "name": "generate_email_subject",
+        "doc": "Generate email subject lines optimized for open rates."
+      },
+      {
+        "name": "generate_meta_description",
+        "doc": "Generate an SEO meta description for a webpage."
+      },
+      {
+        "name": "rewrite",
+        "doc": "Rewrite text in a different tone or for a different audience."
+      },
+      {
+        "name": "generate_product_description",
+        "doc": "Generate a product description for ecommerce or landing pages."
+      }
+    ],
+    "tool_count": 7,
+    "status": "pending"
+  },
+  "mcp-email-campaign": {
+    "name": "mcp-email-campaign",
+    "category": "marketing",
+    "description": "Email campaign MCP for mmiri28 solutions. Manage subscriber lists, send broadcasts via Resend, track basic stats.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": ""
+      },
+      {
+        "name": "run_migrations",
+        "doc": ""
+      },
+      {
+        "name": "create_list",
+        "doc": "Create a new subscriber list."
+      },
+      {
+        "name": "add_subscriber",
+        "doc": "Add a subscriber to a list."
+      },
+      {
+        "name": "remove_subscriber",
+        "doc": "Unsubscribe a subscriber."
+      },
+      {
+        "name": "list_subscribers",
+        "doc": "List subscribers in a list."
+      },
+      {
+        "name": "send_campaign",
+        "doc": "Send an email broadcast to all active subscribers in a list."
+      },
+      {
+        "name": "get_campaign_stats",
+        "doc": "Get sending stats for a campaign."
+      }
+    ],
+    "tool_count": 8,
+    "status": "pending"
+  },
+  "mcp-press": {
+    "name": "mcp-press",
+    "category": "marketing",
+    "description": "Press and PR management MCP for mmiri28 solutions. Store press releases, manage media contacts, track outreach.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": ""
+      },
+      {
+        "name": "run_migrations",
+        "doc": ""
+      },
+      {
+        "name": "create_press_release",
+        "doc": "Store a press release."
+      },
+      {
+        "name": "get_press_release",
+        "doc": "Get a press release by ID."
+      },
+      {
+        "name": "list_press_releases",
+        "doc": "List press releases."
+      },
+      {
+        "name": "add_media_contact",
+        "doc": "Add a media contact."
+      },
+      {
+        "name": "list_media_contacts",
+        "doc": "List media contacts, optionally filtered by beat or outlet."
+      },
+      {
+        "name": "log_outreach",
+        "doc": "Log an outreach attempt to a media contact."
+      },
+      {
+        "name": "get_outreach_log",
+        "doc": "View outreach history."
+      }
+    ],
+    "tool_count": 9,
+    "status": "pending"
+  },
+  "mcp-seo": {
+    "name": "mcp-seo",
+    "category": "marketing",
+    "description": "SEO analysis MCP for mmiri28 solutions. Analyze meta tags, generate sitemaps, check robots.txt, measure page speed.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "mcp-seo works without credentials for basic features."
+      },
+      {
+        "name": "analyze_page",
+        "doc": "Analyze a webpage for basic SEO factors."
+      },
+      {
+        "name": "check_meta_tags",
+        "doc": "Check specifically which meta tags are present and their values."
+      },
+      {
+        "name": "generate_sitemap",
+        "doc": "Generate a sitemap."
+      },
+      {
+        "name": "check_robots_txt",
+        "doc": "Fetch and parse a domain's robots."
+      },
+      {
+        "name": "lighthouse_score",
+        "doc": "Get a Google Lighthouse score via the PageSpeed Insights API."
+      }
+    ],
+    "tool_count": 6,
+    "status": "pending"
+  },
+  "mcp-social-listen": {
+    "name": "mcp-social-listen",
+    "category": "marketing",
+    "description": "Social listening MCP for mmiri28 solutions. Track brand mentions and keywords on Twitter/X. Stores results in Postgres for trend analysis.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": ""
+      },
+      {
+        "name": "run_migrations",
+        "doc": ""
+      },
+      {
+        "name": "track_keyword",
+        "doc": "Register a keyword to track mentions of."
+      },
+      {
+        "name": "fetch_twitter_mentions",
+        "doc": "Fetch recent Twitter/X mentions of a keyword."
+      },
+      {
+        "name": "get_mentions",
+        "doc": "Query stored mentions."
+      },
+      {
+        "name": "list_keywords",
+        "doc": "List all tracked keywords, optionally filtered by app."
+      },
+      {
+        "name": "delete_keyword",
+        "doc": "Stop tracking a keyword."
+      }
+    ],
+    "tool_count": 7,
+    "status": "pending"
+  },
+  "mcp-social-post": {
+    "name": "mcp-social-post",
+    "category": "marketing",
+    "description": "Social media posting MCP for mmiri28 solutions. Post to Twitter/X and LinkedIn. Returns the published URL.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Check which social platforms are configured."
+      },
+      {
+        "name": "post_twitter",
+        "doc": "Post a tweet to Twitter/X."
+      },
+      {
+        "name": "post_linkedin",
+        "doc": "Post text to LinkedIn (personal account)."
+      },
+      {
+        "name": "post_to_all",
+        "doc": "Cross-post to multiple platforms."
+      },
+      {
+        "name": "post_facebook",
+        "doc": "[STUB] Post to a Facebook page."
+      },
+      {
+        "name": "post_instagram",
+        "doc": "[STUB] Post to Instagram."
+      }
+    ],
+    "tool_count": 6,
+    "status": "pending"
+  },
+  "mcp-calendar": {
+    "name": "mcp-calendar",
+    "category": "scheduling",
+    "description": "Google Calendar MCP for mmiri28 solutions. List, create, update, delete events. Find free slots for scheduling.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Verify Google OAuth credentials work."
+      },
+      {
+        "name": "list_calendars",
+        "doc": "List all calendars the authorised user has access to."
+      },
+      {
+        "name": "list_events",
+        "doc": "List upcoming events from a calendar."
+      },
+      {
+        "name": "create_event",
+        "doc": "Create a calendar event."
+      },
+      {
+        "name": "delete_event",
+        "doc": "Delete an event."
+      },
+      {
+        "name": "find_free_slot",
+        "doc": "Find available time slots across one or more calendars."
+      }
+    ],
+    "tool_count": 6,
+    "status": "pending"
+  },
+  "mcp-cron": {
+    "name": "mcp-cron",
+    "category": "scheduling",
+    "description": "Cron scheduling MCP for mmiri28 solutions. Register jobs with cron expressions, find due jobs, log execution history. Designed to be polled by a system cron task.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": ""
+      },
+      {
+        "name": "run_migrations",
+        "doc": ""
+      },
+      {
+        "name": "register_job",
+        "doc": "Register a scheduled job."
+      },
+      {
+        "name": "get_due_jobs",
+        "doc": "Return all active jobs whose next_run is in the past."
+      },
+      {
+        "name": "record_execution",
+        "doc": "Record that a job was executed and update its next_run time."
+      },
+      {
+        "name": "list_jobs",
+        "doc": "List registered jobs."
+      },
+      {
+        "name": "get_job_history",
+        "doc": "Get execution history for a job."
+      },
+      {
+        "name": "pause_job",
+        "doc": "Temporarily disable a job (won't appear in get_due_jobs)."
+      },
+      {
+        "name": "resume_job",
+        "doc": "Re-enable a paused job and reset its next_run."
+      },
+      {
+        "name": "delete_job",
+        "doc": "Permanently delete a job and its history."
+      }
+    ],
+    "tool_count": 10,
+    "status": "pending"
+  },
+  "mcp-release-plan": {
+    "name": "mcp-release-plan",
+    "category": "scheduling",
+    "description": "Release planning MCP for mmiri28 solutions. Track releases by version, ship dates, and features. Status workflow: planned \u2192 in_progress \u2192 released.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": ""
+      },
+      {
+        "name": "run_migrations",
+        "doc": ""
+      },
+      {
+        "name": "create_release",
+        "doc": "Create a new release plan."
+      },
+      {
+        "name": "add_feature",
+        "doc": "Add a feature to a release."
+      },
+      {
+        "name": "update_status",
+        "doc": "Update release status."
+      },
+      {
+        "name": "update_feature_status",
+        "doc": "Update a feature's status."
+      },
+      {
+        "name": "list_releases",
+        "doc": "List releases with optional filters."
+      },
+      {
+        "name": "get_release",
+        "doc": "Get release details with all features."
+      },
+      {
+        "name": "generate_release_notes",
+        "doc": "Auto-generate release notes from completed features."
+      }
+    ],
+    "tool_count": 9,
+    "status": "pending"
+  },
+  "mcp-standup": {
+    "name": "mcp-standup",
+    "category": "scheduling",
+    "description": "Async standup MCP for mmiri28 solutions. Daily check-ins: yesterday, today, blockers. Per-app team summaries.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": ""
+      },
+      {
+        "name": "run_migrations",
+        "doc": ""
+      },
+      {
+        "name": "submit_standup",
+        "doc": "Submit today's standup."
+      },
+      {
+        "name": "get_standup",
+        "doc": "Get a user's standup for a specific date (default: today)."
+      },
+      {
+        "name": "list_standups",
+        "doc": "List standups for an app/team."
+      },
+      {
+        "name": "get_team_summary",
+        "doc": "Get a team summary for a specific day."
+      }
+    ],
+    "tool_count": 6,
+    "status": "pending"
+  },
+  "mcp-time-track": {
+    "name": "mcp-time-track",
+    "category": "scheduling",
+    "description": "Time tracking MCP for mmiri28 solutions. Start/stop timers, log time entries, generate daily/weekly summaries by app or category.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": ""
+      },
+      {
+        "name": "run_migrations",
+        "doc": ""
+      },
+      {
+        "name": "start_timer",
+        "doc": "Start a timer."
+      },
+      {
+        "name": "stop_timer",
+        "doc": "Stop the currently running timer for a user."
+      },
+      {
+        "name": "log_time",
+        "doc": "Manually log a completed time entry (without using a timer)."
+      },
+      {
+        "name": "get_current_timer",
+        "doc": "Get the currently running timer for a user."
+      },
+      {
+        "name": "get_summary",
+        "doc": "Time summary for a user over the past N days."
+      },
+      {
+        "name": "list_entries",
+        "doc": "List recent time entries for a user."
+      }
+    ],
+    "tool_count": 8,
+    "status": "pending"
+  },
+  "mcp-appstore": {
+    "name": "mcp-appstore",
+    "category": "launch",
+    "description": "App Store Connect MCP for mmiri28 solutions. Manage iOS app metadata, fetch reviews, list TestFlight builds.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Verify App Store Connect credentials work."
+      },
+      {
+        "name": "list_apps",
+        "doc": "List all iOS apps in the account."
+      },
+      {
+        "name": "get_app",
+        "doc": "Get details for a specific iOS app."
+      },
+      {
+        "name": "get_reviews",
+        "doc": "Get customer reviews for an app."
+      },
+      {
+        "name": "list_builds",
+        "doc": "List TestFlight builds for an app."
+      },
+      {
+        "name": "get_app_versions",
+        "doc": "Get app versions (releases) and their states."
+      }
+    ],
+    "tool_count": 6,
+    "status": "pending"
+  },
+  "mcp-coinbase": {
+    "name": "mcp-coinbase",
+    "category": "launch",
+    "description": "Coinbase Commerce MCP for mmiri28 solutions. Accept crypto payments \u2014 BTC, ETH, USDC, and more. Create charges, check status, verify webhooks.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Verify Coinbase Commerce API key."
+      },
+      {
+        "name": "create_charge",
+        "doc": "Create a crypto payment charge."
+      },
+      {
+        "name": "get_charge",
+        "doc": "Get charge status by ID or short code."
+      },
+      {
+        "name": "list_charges",
+        "doc": "List recent charges."
+      },
+      {
+        "name": "verify_webhook",
+        "doc": "Verify a Coinbase Commerce webhook signature."
+      }
+    ],
+    "tool_count": 5,
+    "status": "pending"
+  },
+  "mcp-playstore": {
+    "name": "mcp-playstore",
+    "category": "launch",
+    "description": "Google Play Console MCP for mmiri28 solutions. Manage Android app listings, fetch reviews, list release tracks.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Verify service account credentials."
+      },
+      {
+        "name": "get_app_listing",
+        "doc": "Get the store listing for an Android app in a specific language."
+      },
+      {
+        "name": "list_reviews",
+        "doc": "Get recent reviews for an Android app."
+      },
+      {
+        "name": "list_tracks",
+        "doc": "List release tracks (production, beta, alpha, internal)."
+      }
+    ],
+    "tool_count": 4,
+    "status": "pending"
+  },
+  "mcp-product-hunt": {
+    "name": "mcp-product-hunt",
+    "category": "launch",
+    "description": "Product Hunt MCP for mmiri28 solutions. Search products, get today's launches, look up posts by slug. Useful for monitoring competitors and planning launches.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Verify Product Hunt access token."
+      },
+      {
+        "name": "get_post",
+        "doc": "Get a Product Hunt post by its slug."
+      },
+      {
+        "name": "get_todays_posts",
+        "doc": "Get today's top Product Hunt launches."
+      },
+      {
+        "name": "search_posts",
+        "doc": "Search Product Hunt posts."
+      }
+    ],
+    "tool_count": 4,
+    "status": "pending"
+  },
+  "mcp-waitlist": {
+    "name": "mcp-waitlist",
+    "category": "launch",
+    "description": "Waitlist MCP for mmiri28 solutions. Pre-launch signups with referral codes. Referrals boost users up the list. Invite top N when ready.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": ""
+      },
+      {
+        "name": "run_migrations",
+        "doc": ""
+      },
+      {
+        "name": "create_waitlist",
+        "doc": "Create a new waitlist for a product launch."
+      },
+      {
+        "name": "join_waitlist",
+        "doc": "Add an email to a waitlist."
+      },
+      {
+        "name": "get_position",
+        "doc": "Look up a signup by email or referral code."
+      },
+      {
+        "name": "list_top",
+        "doc": "List the top N waiting signups for a waitlist."
+      },
+      {
+        "name": "invite_top",
+        "doc": "Mark the top N waiting signups as 'invited'."
+      },
+      {
+        "name": "get_waitlist_stats",
+        "doc": "Get waitlist stats \u2014 total signups, status breakdown, top referrers."
+      },
+      {
+        "name": "list_waitlists",
+        "doc": "List all waitlists."
+      }
+    ],
+    "tool_count": 9,
+    "status": "pending"
+  },
+  "mcp-code-review": {
+    "name": "mcp-code-review",
+    "category": "team",
+    "description": "Code review MCP for mmiri28 solutions. Track PR review requests, assign reviewers, log decisions, calculate review stats, nudge stale reviews.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": ""
+      },
+      {
+        "name": "run_migrations",
+        "doc": ""
+      },
+      {
+        "name": "register_pr",
+        "doc": "Register a PR that needs review."
+      },
+      {
+        "name": "assign_reviewer",
+        "doc": "Assign a reviewer to a PR."
+      },
+      {
+        "name": "complete_review",
+        "doc": "Record a completed review."
+      },
+      {
+        "name": "list_pending_reviews",
+        "doc": "List pending review assignments for a specific reviewer."
+      },
+      {
+        "name": "get_review_stats",
+        "doc": "Get review stats for a reviewer over the past N days."
+      },
+      {
+        "name": "nudge_pending",
+        "doc": "Find stale review assignments \u2014 pending more than N hours."
+      }
+    ],
+    "tool_count": 8,
+    "status": "pending"
+  },
+  "mcp-docs": {
+    "name": "mcp-docs",
+    "category": "team",
+    "description": "Internal docs MCP for mmiri28 solutions. Markdown documentation stored in Postgres. Search by title, content, or tags.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": ""
+      },
+      {
+        "name": "run_migrations",
+        "doc": ""
+      },
+      {
+        "name": "create_doc",
+        "doc": "Create a documentation page."
+      },
+      {
+        "name": "get_doc",
+        "doc": "Get a doc by slug or UUID."
+      },
+      {
+        "name": "update_doc",
+        "doc": "Update a doc."
+      },
+      {
+        "name": "delete_doc",
+        "doc": "Delete a doc."
+      },
+      {
+        "name": "search_docs",
+        "doc": "Search docs by title, content, or tags."
+      },
+      {
+        "name": "list_docs",
+        "doc": "List docs with optional filters."
+      }
+    ],
+    "tool_count": 8,
+    "status": "pending"
+  },
+  "mcp-figma-ops": {
+    "name": "mcp-figma-ops",
+    "category": "team",
+    "description": "Figma MCP for mmiri28 solutions. Get file info, list components, export node images, read variables (design tokens), fetch comments.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Verify Figma token."
+      },
+      {
+        "name": "get_file",
+        "doc": "Get Figma file metadata, pages, and top-level nodes."
+      },
+      {
+        "name": "get_file_nodes",
+        "doc": "Fetch specific nodes from a Figma file."
+      },
+      {
+        "name": "get_components",
+        "doc": "List all components in a Figma file."
+      },
+      {
+        "name": "export_images",
+        "doc": "Export Figma nodes as images."
+      },
+      {
+        "name": "get_comments",
+        "doc": "List all comments on a Figma file."
+      },
+      {
+        "name": "get_variables",
+        "doc": "Get local variables (design tokens) defined in a Figma file."
+      }
+    ],
+    "tool_count": 7,
+    "status": "pending"
+  },
+  "mcp-onboarding": {
+    "name": "mcp-onboarding",
+    "category": "team",
+    "description": "Onboarding MCP for mmiri28 solutions. Define onboarding templates with steps, assign to new hires, track completion progress.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": ""
+      },
+      {
+        "name": "run_migrations",
+        "doc": ""
+      },
+      {
+        "name": "create_template",
+        "doc": "Create an onboarding template."
+      },
+      {
+        "name": "start_onboarding",
+        "doc": "Start an onboarding for a new team member from a template."
+      },
+      {
+        "name": "complete_step",
+        "doc": "Mark a step as complete for an onboarding."
+      },
+      {
+        "name": "get_onboarding_progress",
+        "doc": "Get progress for an onboarding \u2014 all steps with completion status."
+      },
+      {
+        "name": "list_active_onboardings",
+        "doc": "List all active onboardings."
+      },
+      {
+        "name": "complete_onboarding",
+        "doc": "Mark an entire onboarding as completed."
+      }
+    ],
+    "tool_count": 8,
+    "status": "pending"
+  },
+  "mcp-slack-ops": {
+    "name": "mcp-slack-ops",
+    "category": "team",
+    "description": "Slack MCP for mmiri28 solutions. Send messages, manage channels, list users, react to messages.",
+    "tools": [
+      {
+        "name": "health_check",
+        "doc": "Verify Slack bot token and return workspace info."
+      },
+      {
+        "name": "send_message",
+        "doc": "Send a message to a Slack channel."
+      },
+      {
+        "name": "send_dm",
+        "doc": "Send a direct message to a user."
+      },
+      {
+        "name": "list_channels",
+        "doc": "List channels in the workspace."
+      },
+      {
+        "name": "list_users",
+        "doc": "List workspace users (excludes bots and deleted)."
+      },
+      {
+        "name": "create_channel",
+        "doc": "Create a new channel."
+      },
+      {
+        "name": "add_reaction",
+        "doc": "Add an emoji reaction to a message."
+      }
+    ],
+    "tool_count": 7,
+    "status": "pending"
+  }
+}

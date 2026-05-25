@@ -3,87 +3,75 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MMIRI is LIFE</title>
+  <title>mmiri — ogbe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
 
-  <!-- Background grid -->
-  <div class="grid"></div>
+  <!-- Decorative waves (behind everything) -->
+  <svg class="wave-bg" viewBox="0 0 1440 600" preserveAspectRatio="none" aria-hidden="true">
+    <defs>
+      <linearGradient id="wave1" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%"   stop-color="#0EA5E9" stop-opacity="0.10"/>
+        <stop offset="100%" stop-color="#0EA5E9" stop-opacity="0"/>
+      </linearGradient>
+      <linearGradient id="wave2" x1="0" x2="0" y1="0" y2="1">
+        <stop offset="0%"   stop-color="#38BDF8" stop-opacity="0.06"/>
+        <stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <path d="M0,300 C320,420 720,180 1440,320 L1440,600 L0,600 Z" fill="url(#wave1)"/>
+    <path d="M0,380 C400,500 800,260 1440,400 L1440,600 L0,600 Z" fill="url(#wave2)"/>
+  </svg>
 
-  <!-- Banner -->
-  <main class="banner">
+  <!-- HERO -->
+  <header class="hero">
     <p class="brand">mmiri28 solutions</p>
-    <h1>
-      <span class="word-mmiri">MMIRI</span>
-      <span class="word-is">is</span>
-      <span class="word-life">LIFE</span>
-    </h1>
-    <p class="tagline">Validation app — every page view is a real MCP call.</p>
-  </main>
+    <h1 class="title">mmiri</h1>
+    <p class="subtitle">ogbe<span class="bangs">!!!</span></p>
+    <p class="meaning">
+      <span class="igbo">mmiri</span> = water · <span class="igbo">ogbe</span> = village
+    </p>
+    <p class="tagline">A hub of 47 MCPs — the rivers and tributaries powering every mmiri28 app.</p>
 
-  <!-- Live status panel (bottom-left) -->
-  <aside class="status" id="status">
-    <div class="status-header">
+    <div class="hero-status" id="hero-status">
       <span class="dot" id="dot"></span>
-      <span>mcp-analytics</span>
+      <span id="hero-status-text">connecting to mcp-analytics…</span>
+      <span class="hero-divider">·</span>
+      <span id="hero-visits">— visits</span>
     </div>
-    <div class="status-row">
-      <span class="label">status</span>
-      <span class="value" id="mcp-status">checking...</span>
-    </div>
-    <div class="status-row">
-      <span class="label">visits</span>
-      <span class="value" id="visit-count">—</span>
-    </div>
-    <div class="status-row">
-      <span class="label">events tracked</span>
-      <span class="value" id="event-types">—</span>
-    </div>
-  </aside>
+  </header>
 
-  <!-- Footer (bottom-right) -->
-  <footer>
-    <span>powered by the mmiri28 MCP ecosystem</span>
+  <main class="ogbe-list" id="ogbe-list"></main>
+
+  <footer class="page-footer">
+    <span>built on the mmiri28 MCP ecosystem</span>
     <span class="dim">·</span>
-    <span class="dim">47 MCPs</span>
+    <span class="dim">47 MCPs · 364 tools · 8 ogbe</span>
   </footer>
 
-  <script>
-    async function refreshStatus() {
-      const dot   = document.getElementById("dot");
-      const stat  = document.getElementById("mcp-status");
-      const count = document.getElementById("visit-count");
-      const types = document.getElementById("event-types");
+  <!-- Modal -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-backdrop" id="modal-backdrop"></div>
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close" aria-label="Close">×</button>
+      <div class="modal-header">
+        <span class="modal-cat" id="modal-cat"></span>
+        <h2 class="modal-title" id="modal-title"></h2>
+        <p class="modal-desc" id="modal-desc"></p>
+        <div class="modal-meta">
+          <span class="modal-status" id="modal-status"></span>
+          <span class="modal-count" id="modal-count"></span>
+        </div>
+      </div>
+      <div class="modal-tools-header">tools</div>
+      <ul class="modal-tools" id="modal-tools"></ul>
+    </div>
+  </div>
 
-      try {
-        const h = await fetch("/api/health").then(r => r.json());
-        if (h.ok && h.mcp_analytics === "connected") {
-          dot.className = "dot connected";
-          stat.textContent = "connected";
-        } else {
-          dot.className = "dot error";
-          stat.textContent = "error";
-        }
-      } catch (e) {
-        dot.className = "dot error";
-        stat.textContent = "unreachable";
-        return;
-      }
-
-      try {
-        const v = await fetch("/api/visit-count").then(r => r.json());
-        if (v.ok) {
-          count.textContent = v.page_views.toLocaleString();
-          types.textContent = (v.all_events || []).length;
-        }
-      } catch (e) {
-        count.textContent = "?";
-      }
-    }
-
-    refreshStatus();
-    setInterval(refreshStatus, 8000);
-  </script>
+  <script src="/static/app.js"></script>
 </body>
 </html>

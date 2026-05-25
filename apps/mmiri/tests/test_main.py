@@ -15,7 +15,7 @@ def test_app_imports():
     """The FastAPI app object can be constructed."""
     from src.main import app
     assert app.title == "mmiri"
-    assert app.version == "0.1.0"
+    assert app.version == "0.2.0"
 
 
 def test_routes_registered():
@@ -37,10 +37,20 @@ def test_mcp_client_resolves_ecosystem_root():
 
 
 def test_static_files_exist():
-    """The banner HTML and CSS are present."""
+    """Banner HTML, CSS, JS, and the MCP catalog are present."""
     from src.main import STATIC_DIR
+    import json
     assert (STATIC_DIR / "index.html").exists()
     assert (STATIC_DIR / "style.css").exists()
+    assert (STATIC_DIR / "app.js").exists()
+    assert (STATIC_DIR / "catalog.json").exists()
+
     html = (STATIC_DIR / "index.html").read_text()
-    assert "MMIRI" in html
-    assert "LIFE" in html
+    assert "mmiri" in html
+    assert "ogbe" in html
+
+    catalog = json.loads((STATIC_DIR / "catalog.json").read_text())
+    assert len(catalog) >= 40, f"expected ~47 MCPs in catalog, got {len(catalog)}"
+    # Sanity-check a known MCP exists with tools
+    assert "mcp-auth" in catalog
+    assert catalog["mcp-auth"]["tool_count"] > 0
