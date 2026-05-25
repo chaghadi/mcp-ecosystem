@@ -12,6 +12,73 @@ const CATEGORY_LABELS = {
   team:       "slack · docs · onboarding · code review · figma",
 };
 
+// Each animal chosen for what its nature mirrors in the MCP's job.
+// Hippo on mcp-docs is a deliberate Niger reference.
+const ANIMALS = {
+  // data — the foundation
+  "mcp-postgres":      { emoji: "🐘", reason: "long memory, holds the whole record" },
+  "mcp-redis":         { emoji: "🐇", reason: "speed — in-memory cache" },
+  "mcp-storage":       { emoji: "🦫", reason: "builder, gatherer of files" },
+  "mcp-search":        { emoji: "🦅", reason: "sharp vision, finds from afar" },
+
+  // business — the spine
+  "mcp-auth":          { emoji: "🦉", reason: "watchful guardian at the gate" },
+  "mcp-user-mgmt":     { emoji: "🐝", reason: "the community, organised" },
+  "mcp-billing":       { emoji: "🐿️", reason: "saves, collects, accounts" },
+  "mcp-notifications": { emoji: "🕊️", reason: "the messenger" },
+  "mcp-analytics":     { emoji: "🦊", reason: "observant, follows the trail" },
+  "mcp-webhooks":      { emoji: "🐓", reason: "announces every event" },
+
+  // dev — the workshop
+  "mcp-blueprint":     { emoji: "🕷️", reason: "weaves the architecture" },
+  "mcp-git-ops":       { emoji: "🐙", reason: "many arms, many branches" },
+  "mcp-scaffold":      { emoji: "🐦", reason: "nest-builder" },
+  "mcp-env":           { emoji: "🦎", reason: "adapts to its surroundings" },
+  "mcp-docker-ops":    { emoji: "🐳", reason: "carries containers" },
+  "mcp-test-runner":   { emoji: "🐆", reason: "fastest creature for fast checks" },
+  "mcp-linter":        { emoji: "🦝", reason: "picky, washes everything first" },
+  "mcp-changelog":     { emoji: "🐢", reason: "slow, holds the whole history" },
+  "mcp-deps":          { emoji: "🐜", reason: "an interconnected colony" },
+
+  // infra — the ground
+  "mcp-vercel":        { emoji: "🐎", reason: "fast delivery" },
+  "mcp-digitalocean":  { emoji: "🐬", reason: "lives in the ocean" },
+  "mcp-cloudflare":    { emoji: "🦢", reason: "graceful, lives in the sky" },
+  "mcp-ssl":           { emoji: "🦔", reason: "armored — its job is to protect" },
+  "mcp-monitor":       { emoji: "🦦", reason: "always watching the surface" },
+  "mcp-backup":        { emoji: "🦡", reason: "stores reserves underground" },
+
+  // marketing — outward voice
+  "mcp-social-post":   { emoji: "🦜", reason: "broadcasts, repeats" },
+  "mcp-social-listen": { emoji: "🦇", reason: "ear-first, hears chatter" },
+  "mcp-content-gen":   { emoji: "🦚", reason: "creative display" },
+  "mcp-seo":           { emoji: "🐠", reason: "climbs the rankings" },
+  "mcp-email-campaign":{ emoji: "🦋", reason: "delicate at scale" },
+  "mcp-ab-test":       { emoji: "🦓", reason: "two patterns, side by side" },
+  "mcp-press":         { emoji: "🦁", reason: "the loudest roar" },
+
+  // scheduling — time
+  "mcp-calendar":      { emoji: "🐧", reason: "punctual, formal" },
+  "mcp-cron":          { emoji: "🦗", reason: "rhythmic, regular chirp" },
+  "mcp-release-plan":  { emoji: "🦒", reason: "the long view, milestones reached" },
+  "mcp-standup":       { emoji: "🦌", reason: "the herd, gathered" },
+  "mcp-time-track":    { emoji: "🐹", reason: "the wheel that keeps turning" },
+
+  // launch — going to market
+  "mcp-coinbase":      { emoji: "🐉", reason: "hoards gold" },
+  "mcp-appstore":      { emoji: "🦩", reason: "premium, stands out" },
+  "mcp-playstore":     { emoji: "🐸", reason: "ubiquitous, lives everywhere" },
+  "mcp-product-hunt":  { emoji: "🐺", reason: "the hunter" },
+  "mcp-waitlist":      { emoji: "🦆", reason: "the orderly queue" },
+
+  // team — inside the house
+  "mcp-slack-ops":     { emoji: "🐒", reason: "social, always chattering" },
+  "mcp-docs":          { emoji: "🦛", reason: "the river's resident — knows it all" },
+  "mcp-onboarding":    { emoji: "🦘", reason: "carries the new one in the pouch" },
+  "mcp-code-review":   { emoji: "🐕", reason: "loyal, faithful inspector" },
+  "mcp-figma-ops":     { emoji: "🪼", reason: "fluid, takes any shape" },
+};
+
 const CATEGORY_COLORS = {
   data: "#38BDF8", business: "#2DD4BF", dev: "#818CF8", infra: "#FB923C",
   marketing: "#F472B6", scheduling: "#34D399", launch: "#FBBF24", team: "#C084FC",
@@ -52,10 +119,13 @@ function renderOgbe(catalog) {
     const grid = section.querySelector(".tile-grid");
     mcps.sort((a, b) => a.name.localeCompare(b.name));
     for (const mcp of mcps) {
+      const animal = ANIMALS[mcp.name] || { emoji: "🌊", reason: "" };
       const tile = document.createElement("article");
       tile.className = "tile";
+      tile.setAttribute("data-cat", cat);
       tile.style.setProperty("--tile-color", color);
       tile.innerHTML = `
+        <div class="tile-animal" aria-hidden="true">${animal.emoji}</div>
         <div class="tile-name">${mcp.name}</div>
         <div class="tile-row">
           <span class="tile-status">
@@ -73,6 +143,10 @@ function renderOgbe(catalog) {
 
 function openModal(mcp, color) {
   const modal = document.getElementById("modal");
+  const animal = ANIMALS[mcp.name] || { emoji: "🌊", reason: "" };
+  document.getElementById("modal-animal").textContent = animal.emoji;
+  document.getElementById("modal-animal-reason").textContent =
+    animal.reason ? `— ${animal.reason}` : "";
   document.getElementById("modal-cat").textContent = mcp.category;
   document.getElementById("modal-cat").style.background = color;
   document.getElementById("modal-title").textContent = mcp.name;

@@ -208,19 +208,29 @@ html, body {
 
 .tile {
   position: relative;
-  background: rgba(15, 26, 53, 0.5);
+  background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--line);
   border-radius: 12px;
-  padding: 1rem 1.1rem;
+  padding: 1.1rem 1.1rem 1rem;
   cursor: pointer;
-  transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, filter 0.2s ease;
   overflow: hidden;
 }
 
+/* Soft tinted backgrounds per category — easy on the eye */
+.tile[data-cat="data"]       { background: rgba(56, 189, 248, 0.10);  border-color: rgba(56, 189, 248, 0.30); }
+.tile[data-cat="business"]   { background: rgba(45, 212, 191, 0.10);  border-color: rgba(45, 212, 191, 0.30); }
+.tile[data-cat="dev"]        { background: rgba(129, 140, 248, 0.10); border-color: rgba(129, 140, 248, 0.30); }
+.tile[data-cat="infra"]      { background: rgba(251, 146, 60, 0.10);  border-color: rgba(251, 146, 60, 0.30); }
+.tile[data-cat="marketing"]  { background: rgba(244, 114, 182, 0.10); border-color: rgba(244, 114, 182, 0.30); }
+.tile[data-cat="scheduling"] { background: rgba(52, 211, 153, 0.10);  border-color: rgba(52, 211, 153, 0.30); }
+.tile[data-cat="launch"]     { background: rgba(251, 191, 36, 0.10);  border-color: rgba(251, 191, 36, 0.30); }
+.tile[data-cat="team"]       { background: rgba(192, 132, 252, 0.10); border-color: rgba(192, 132, 252, 0.30); }
+
 .tile:hover {
   transform: translateY(-2px);
-  border-color: var(--sky-light);
-  background: rgba(15, 26, 53, 0.85);
+  filter: brightness(1.25);
+  border-color: var(--tile-color);
 }
 
 /* Category stripe on left edge */
@@ -232,6 +242,15 @@ html, body {
   bottom: 0;
   width: 3px;
   background: var(--tile-color, var(--sky));
+}
+
+.tile-animal {
+  font-size: 1.7rem;
+  line-height: 1;
+  margin-bottom: 0.65rem;
+  display: block;
+  /* Soften the emoji glow against the dark background */
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
 }
 
 .tile-name {
@@ -248,7 +267,7 @@ html, body {
   align-items: center;
   justify-content: space-between;
   font-size: 0.74rem;
-  color: var(--ink-dim);
+  color: var(--ink-soft);
 }
 
 .tile-status {
@@ -318,6 +337,25 @@ html, body {
 .modal-header {
   padding: 1.5rem 1.5rem 1.2rem;
   border-bottom: 1px solid var(--line-soft);
+}
+
+.modal-animal-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin-bottom: 0.9rem;
+}
+
+.modal-animal {
+  font-size: 2.4rem;
+  line-height: 1;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+}
+
+.modal-animal-reason {
+  font-size: 0.8rem;
+  color: var(--ink-dim);
+  font-style: italic;
 }
 
 .modal-cat {
