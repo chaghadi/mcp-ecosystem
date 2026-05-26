@@ -103,7 +103,7 @@
       "mcp-storage": "Receipt uploads, QR code generation and storage",
       "mcp-notifications": "Emergency schedule change alerts, low stock alerts",
       "mcp-analytics": "Shift completion events, attendance events, expense events",
-      "mcp-cron": "Weekly payroll reminder (Friday 16:00 Vienna), schedule creation nudge (Sunday 10:00)",
+      "mcp-cron": "Weekly schedule creation nudge (Sunday 10:00 Vienna)",
       "mcp-vercel": "Production deployment of all three apps",
       "mcp-monitor": "Uptime monitoring for client app public URL",
       "mcp-git-ops": "Commit and push workflow from Claude Code",
@@ -179,7 +179,8 @@
     "expenses",
     "service_requests",
     "notifications",
-    "audit_log"
+    "audit_log",
+    "payroll_signatures"
   ],
   "user_stories": [
     "As manager, I create the weekly schedule every Sunday so employees see shifts instantly",
@@ -188,7 +189,8 @@
     "As manager, I review auto-calculated payroll on Friday and export in under 15 minutes",
     "As employee, I see today's special tasks and mark them complete after each shift",
     "As employee, I report low bleach stock and the manager sees it immediately",
-    "As customer, I scan a QR code, fill a form, and request a cleaning in under 2 minutes"
+    "As customer, I scan a QR code, fill a form, and request a cleaning in under 2 minutes",
+    "As manager, I send a payslip to each employee and they sign it digitally to confirm receipt"
   ],
   "design_tokens": {
     "colors": {
