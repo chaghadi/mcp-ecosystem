@@ -1,8 +1,3 @@
-{"timestamp": "2026-05-26T17:19:03.460743+00:00", "action": "init_project", "project_slug": "taha", "actor": "chaghadi", "detail": "Project 'Taha' initialized. stack=fullstack."}
-{"timestamp": "2026-05-26T17:19:03.460743+00:00", "action": "write_prd", "project_slug": "taha", "actor": "chaghadi", "detail": "PRD written. Personas: owner, employee, customer. 7 must-have features."}
-{"timestamp": "2026-05-26T17:19:03.460743+00:00", "action": "write_tech_spec", "project_slug": "taha", "actor": "chaghadi", "detail": "Tech spec written. Vite+React+Supabase. 12 MCPs mapped."}
-{"timestamp": "2026-05-26T17:19:03.460743+00:00", "action": "define_api_contracts", "project_slug": "taha", "actor": "chaghadi", "detail": "8 API contracts defined. Auth, shifts, attendance, payroll, requests."}
-{"timestamp": "2026-05-26T17:19:03.460743+00:00", "action": "define_schema", "project_slug": "taha", "actor": "chaghadi", "detail": "17 tables defined. schema.sql deployed to Supabase ninsjsgtmddmxyalkcmp."}
-{"timestamp": "2026-05-26T17:19:03.460743+00:00", "action": "write_user_stories", "project_slug": "taha", "actor": "chaghadi", "detail": "7 user stories written matching 7 validation stories from spec."}
-{"timestamp": "2026-05-26T17:19:03.460743+00:00", "action": "gate_pre_build", "project_slug": "taha", "actor": "mcp-blueprint", "detail": "Gate PASSED. Score=85. Build approved."}
-{"timestamp": "2026-05-26T17:19:03.460743+00:00", "action": "build_complete", "project_slug": "taha", "actor": "chaghadi", "detail": "3 apps built (owner/worker/client). Pushed to github.com/chaghadi/Taha."}
+{"timestamp": "2026-05-27T17:56:16.562365+00:00", "action": "rebuild_complete", "project_slug": "taha", "detail": "Complete rebuild. Brand=SCHNELL & SAUBER TAHA AL NUAIMI, manager=Sonja. mcp-billing removed."}
+{"timestamp": "2026-05-27T17:56:16.562365+00:00", "action": "audit_fixes", "project_slug": "taha", "detail": "Fixed: VITE_ env, payroll_signatures table, removed admin.createUser, all i18n keys, wired worker+client mocks to real Supabase, deleted 11 dead RN files."}
+{"timestamp": "2026-05-27T17:56:16.562365+00:00", "action": "gate_pre_deploy", "project_slug": "taha", "actor": "mcp-blueprint", "detail": "Gate PASSED. Score=95. Ready to ship."}

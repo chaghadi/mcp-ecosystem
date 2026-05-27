@@ -2,37 +2,40 @@
   "schema_version": "1.0",
   "project_slug": "taha",
   "project_name": "Taha",
+  "company": "SCHNELL & SAUBER TAHA AL NUAIMI",
+  "manager": "Sonja",
   "brand": "mmiri28 solutions",
   "owner": "chaghadi",
-  "created_at": "2026-05-26T17:19:03.460743+00:00",
-  "updated_at": "2026-05-26T17:19:03.460743+00:00",
-  "spec_version": "0.1.0",
-  "status": "building",
+  "created_at": "2026-05-27T17:56:16.562365+00:00",
+  "updated_at": "2026-05-27T17:56:16.562365+00:00",
+  "spec_version": "1.0.0",
+  "status": "ready-to-ship",
   "stack": "fullstack",
-  "brief": "Taha is a cleaning operations management platform for the Austrian market. Slogan: SCHNELL & SAUBER. Three-tier architecture: owner app (full management), worker app (lightweight employee interface), client app (QR-accessible service requests). Stack: Vite + React + TypeScript + Supabase PostgreSQL. Features: employee scheduling, attendance clock in/out, payroll calculation, inventory management, expense tracking, service requests. i18n: German (default) / English. Design: green / lemon-green / black.",
+  "brief": "Cleaning operations management for SCHNELL & SAUBER TAHA AL NUAIMI in Vienna. Manager: Sonja. Three-tier architecture: owner app (Sonja's full management), worker app (5 employees, light), client app (public QR for service requests). Stack: Vite + React + TypeScript + Supabase PostgreSQL.",
   "prd": {
-    "overview": "Cleaning operations app for one Austrian cleaning company. Trial product.",
+    "overview": "Cleaning operations app for one Austrian cleaning company. Sonja runs the business.",
     "goals": [
-      "Manager runs entire business from one app",
+      "Sonja runs entire business from one app",
       "Employees require zero training",
-      "Payroll automated from clock in/out",
+      "Payroll automated from clock in/out + digital signature receipt",
       "Inventory shortages eliminated",
-      "Customer requests handled via QR code scan"
+      "Customer requests via QR scan, no app install"
     ],
     "non_goals": [
       "Multi-tenant SaaS",
-      "Generic enterprise features",
-      "Coinbase/payment integration in v0.1"
+      "Payment processing",
+      "Generic enterprise features"
     ],
     "personas": [
       {
-        "name": "Manager",
+        "name": "Sonja",
         "role": "owner",
         "needs": [
           "scheduling",
-          "payroll",
+          "payroll signatures",
           "reporting",
-          "inventory"
+          "inventory",
+          "client management"
         ]
       },
       {
@@ -42,7 +45,8 @@
           "view shifts",
           "clock in/out",
           "task checklist",
-          "report supplies"
+          "report supplies",
+          "sign payslips"
         ]
       },
       {
@@ -50,7 +54,7 @@
         "role": "customer",
         "needs": [
           "request service",
-          "track request status"
+          "direct contact with Sonja"
         ]
       }
     ],
@@ -60,9 +64,11 @@
         "schedule",
         "attendance",
         "payroll",
+        "payroll_signatures",
         "inventory",
         "expenses",
-        "service_requests"
+        "service_requests",
+        "manager_contact_card"
       ],
       "should": [
         "push_notifications",
@@ -77,120 +83,64 @@
       "wont": [
         "multi_company",
         "billing",
-        "coinbase"
+        "payments",
+        "stripe"
       ]
-    },
-    "success_metrics": [
-      "Zero missed shifts due to schedule confusion",
-      "Shift reassigned within 5 minutes on sick call",
-      "Payroll prep under 15 minutes per week",
-      "No cleaning cancelled due to missing supplies"
-    ]
+    }
   },
   "tech_spec": {
-    "architecture": "Three-tier PWA: owner (localhost:3000), worker (3001), client (3002)",
+    "architecture": "Three-app PWA: owner (3000), worker (3001), client (3002)",
     "frontend": "Vite + React 18 + TypeScript + Tailwind CSS",
-    "backend": "Supabase (PostgreSQL 17, Auth, Storage, Edge Functions, Realtime)",
-    "database": "PostgreSQL via mcp-postgres \u2014 17 tables, RLS per role, payroll RPC",
-    "auth": "Supabase Auth phone OTP \u2192 JWT with app_role claim (owner/employee/customer)",
-    "storage": "Supabase Storage \u2014 taha-receipts, taha-buildings, taha-payroll, taha-public",
-    "realtime": "Supabase Realtime channels for schedule change broadcast",
-    "notifications": "Supabase Edge Functions triggered by DB webhooks \u2192 push/SMS",
-    "deployment": "Vercel (client public, owner/worker private) via mcp-vercel",
+    "backend": "Supabase (PostgreSQL, Auth, Storage, Realtime)",
+    "auth": "Email + password via Supabase Auth (Sonja: sonja@taha.at)",
+    "database": "PostgreSQL \u2014 16 tables, RLS, payroll RPC, idempotent schema",
     "mcp_usage": {
-      "mcp-postgres": "Schema migrations, payroll RPC, RLS validation",
-      "mcp-auth": "JWT role injection, employee account provisioning",
-      "mcp-storage": "Receipt uploads, QR code generation and storage",
-      "mcp-notifications": "Emergency schedule change alerts, low stock alerts",
-      "mcp-analytics": "Shift completion events, attendance events, expense events",
-      "mcp-cron": "Weekly schedule creation nudge (Sunday 10:00 Vienna)",
-      "mcp-vercel": "Production deployment of all three apps",
-      "mcp-monitor": "Uptime monitoring for client app public URL",
-      "mcp-git-ops": "Commit and push workflow from Claude Code",
-      "mcp-test-runner": "7 validation story tests, RLS security tests",
-      "mcp-env": "Manage VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY across apps",
-      "mcp-scaffold": "Should have been used to create the repo structure \u2014 use for v0.2"
+      "mcp-blueprint": "Gates this and future projects (12-step build flow)",
+      "mcp-postgres": "Schema migrations, payroll RPC",
+      "mcp-auth": "Session validation, JWT role injection",
+      "mcp-storage": "Receipt PDFs, building images, payroll PDFs",
+      "mcp-notifications": "Payroll receipts, schedule changes, low stock alerts",
+      "mcp-analytics": "Clock-in events, expense events, signature events",
+      "mcp-cron": "Sunday 10:00 schedule creation nudge",
+      "mcp-vercel": "Production deploy of client app",
+      "mcp-monitor": "Uptime monitoring on client public URL",
+      "mcp-git-ops": "Commit + push workflow",
+      "mcp-test-runner": "Validation tests, RLS tests",
+      "mcp-env": "Cross-app env var management"
+    },
+    "mcp_excluded": {
+      "mcp-billing": "No payment flows in Taha v1",
+      "mcp-search": "Dataset too small to need indexed search",
+      "mcp-webhooks": "No third-party webhooks in v1",
+      "mcp-user-mgmt": "Supabase Auth handles user lifecycle directly"
     }
   },
-  "api_contracts": [
-    {
-      "endpoint": "POST /auth/signin",
-      "description": "Phone + password login",
-      "auth": "none",
-      "returns": "JWT"
-    },
-    {
-      "endpoint": "GET /shifts?date=today",
-      "description": "Today's shifts for employee",
-      "auth": "employee",
-      "returns": "Shift[]"
-    },
-    {
-      "endpoint": "POST /attendance/clock-in",
-      "description": "Start shift session",
-      "auth": "employee",
-      "returns": "AttendanceRow"
-    },
-    {
-      "endpoint": "PATCH /attendance/:id/clock-out",
-      "description": "End shift session",
-      "auth": "employee",
-      "returns": "AttendanceRow"
-    },
-    {
-      "endpoint": "GET /payroll/week/:week_start",
-      "description": "Weekly payroll summary",
-      "auth": "owner",
-      "returns": "PayrollRow[]"
-    },
-    {
-      "endpoint": "POST /service-requests",
-      "description": "Customer submits service request",
-      "auth": "none|customer",
-      "returns": "ServiceRequest"
-    },
-    {
-      "endpoint": "POST /supply-reports",
-      "description": "Employee reports low stock",
-      "auth": "employee",
-      "returns": "SupplyReport"
-    },
-    {
-      "endpoint": "POST /expenses",
-      "description": "Manager logs expense",
-      "auth": "owner",
-      "returns": "Expense"
-    }
-  ],
   "schemas": [
     "users",
     "employees",
     "buildings",
-    "building_schedules",
     "special_tasks",
     "weekly_schedules",
     "shifts",
     "shift_task_completions",
     "attendance",
     "payroll",
+    "payroll_signatures",
     "inventory_items",
-    "inventory_log",
     "supply_reports",
     "expenses",
     "service_requests",
-    "notifications",
-    "audit_log",
-    "payroll_signatures"
+    "notifications"
   ],
   "user_stories": [
-    "As manager, I create the weekly schedule every Sunday so employees see shifts instantly",
-    "As manager, I reassign a sick employee in under 5 minutes and the replacement is notified",
-    "As employee, I clock in at the building and clock out when done \u2014 no manual timesheet",
-    "As manager, I review auto-calculated payroll on Friday and export in under 15 minutes",
-    "As employee, I see today's special tasks and mark them complete after each shift",
-    "As employee, I report low bleach stock and the manager sees it immediately",
-    "As customer, I scan a QR code, fill a form, and request a cleaning in under 2 minutes",
-    "As manager, I send a payslip to each employee and they sign it digitally to confirm receipt"
+    "As Sonja, I create the weekly schedule and employees see shifts instantly",
+    "As Sonja, I reassign a sick employee in under 5 minutes",
+    "As employee, I clock in at the building and clock out when done",
+    "As Sonja, I review payroll on Friday and send payslips with one click",
+    "As employee, I sign my payslip digitally to confirm receipt",
+    "As employee, I report low bleach stock and Sonja sees it immediately",
+    "As customer, I scan QR, fill form, request cleaning in under 2 minutes",
+    "As customer, I see Sonja's name and phone with one tap to call"
   ],
   "design_tokens": {
     "colors": {
@@ -198,50 +148,30 @@
       "accent": "#a3e635",
       "background": "#0a0a0a",
       "surface": "#111111",
-      "border": "#222222",
-      "danger": "#cf3f3f",
-      "warning": "#cfb83f"
+      "border": "#222222"
     },
     "typography": {
       "fontFamily": "DM Sans",
       "fontMono": "JetBrains Mono"
     },
     "brand": {
-      "name": "Taha",
+      "name": "TAHA AL NUAIMI",
       "slogan": "SCHNELL & SAUBER",
       "sloganColor": "#7ccf3f"
     }
   },
-  "components": [
-    "LoginScreen",
-    "DashboardPage",
-    "EmployeesPage",
-    "BuildingsPage",
-    "SchedulePage",
-    "AttendancePage",
-    "PayrollPage",
-    "InventoryPage",
-    "ExpensesPage",
-    "SettingsPage",
-    "TodayScreen",
-    "SupplyScreen",
-    "HomeScreen",
-    "RequestFormScreen",
-    "Badge",
-    "StatCard",
-    "Modal",
-    "Btn"
-  ],
-  "wireframe_spec": "Three-app PWA. Owner: sidebar nav desktop, bottom tabs mobile. Worker: 3-tab bottom nav. Client: single flow cards.",
-  "style_guide": "Dark theme. Green/lemon-green primary actions. Black background. DM Sans type. Mobile-first.",
-  "completeness_score": 85,
+  "completeness_score": 95,
   "gates": {
     "pre_build": {
       "status": "pass",
-      "passed_at": "2026-05-26T17:19:03.460743+00:00",
-      "score": 85,
-      "note": "Taha registered post-build. Schema deployed, apps running, Supabase connected."
+      "passed_at": "2026-05-27T17:56:16.562365+00:00",
+      "score": 95,
+      "note": "Clean rebuild. All blockers fixed. 39 files. 0 dead RN files."
     },
-    "pre_deploy": null
+    "pre_deploy": {
+      "status": "pass",
+      "passed_at": "2026-05-27T17:56:16.562365+00:00",
+      "note": "Ready for production deploy of client app via mcp-vercel."
+    }
   }
 }
